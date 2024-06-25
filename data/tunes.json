@@ -1,14 +1,5 @@
 [
   {
-    "tuneref": "https://thesession.org/tunes/1049, https://tunearch.org/wiki/Pipe_on_the_Hob_(2)",
-    "tunename": "An Coirnéal Frazer (Colonel Frazer)",
-    "tunetype": "Reel",
-    "altnames": "Colonel Fraser",
-    "refno": "95022",
-    "transcriptlink": "",
-    "refsettinglink": "https://thesession.org/tunes/1209, https://tunearch.org/wiki/Colonel_Fraser"
-  },
-  {
     "tuneref": "CRE 5 # 217",
     "tunename": "An Trí is a Rian",
     "tunetype": "Hornpipe",
@@ -346,7 +337,7 @@
     "tunename": "Colonel Frazer",
     "tunetype": "Reel",
     "altnames": "Colonel Fraser / An Coirnéal Frazer",
-    "refno": "4421, 5241, 8201, 11092, 90022",
+    "refno": "4421, 5241, 8201, 11092, 90022, 95022",
     "transcriptlink": "",
     "refsettinglink": "https://thesession.org/tunes/1209, https://tunearch.org/wiki/Colonel_Fraser"
   },
@@ -717,7 +708,7 @@
     "altnames": "Dolly Varden",
     "refno": "5121",
     "transcriptlink": "https://tunepal.org/index.html#!/tune/2656-cre5.abc-16-Dolly~%2526~the~Gypsy~~(barn~dance)~%2525~cre5%253Cbb",
-    "refsettinglink": ""
+    "refsettinglink": "https://thesession.org/tunes/4577"
   },
   {
     "tuneref": "CRE 3 # 42",
@@ -1836,21 +1827,12 @@
     "refsettinglink": "https://thesession.org/tunes/1205"
   },
   {
-    "tuneref": "https://tunearch.org/wiki/Rattle_the_Quilt, http://www.capeirish.com/ittl/tunefolders/18/185/185-plus/185053.pdf",
-    "tunename": "Tom Billy's",
-    "tunetype": "Jig",
-    "altnames": "Tom Billy's No. 1 / Port Tom Billy",
-    "refno": "5051",
-    "transcriptlink": "https://tunepal.org/index.html#!/tune/1418-cre2.abc-5-Flowers~of~Spring~(Tom~Billy~s)~(jig)~%2525~cre2%253Cbb, http://www.capeirish.com/ittl/tunefolders/18/182/182-plus/182048.pdf",
-    "refsettinglink": "https://tunearch.org/wiki/Tom_Billy%27s_Jig_(1)"
-  },
-  {
     "tuneref": "CRE 2 # 48",
     "tunename": "Tom Billy's No. 1",
     "tunetype": "Jig",
     "altnames": "Port Tom Billy",
-    "refno": "3051",
-    "transcriptlink": "",
+    "refno": "3051, 5051",
+    "transcriptlink": "https://tunepal.org/index.html#!/tune/1418-cre2.abc-5-Flowers~of~Spring~(Tom~Billy~s)~(jig)~%2525~cre2%253Cbb, http://www.capeirish.com/ittl/tunefolders/18/182/182-plus/182048.pdf",
     "refsettinglink": "https://tunearch.org/wiki/Tom_Billy%27s_Jig_(1)"
   },
   {

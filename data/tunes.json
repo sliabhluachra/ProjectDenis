@@ -40,9 +40,9 @@
     "tunename": "Art O'Keeffe's",
     "tunetype": "Slide",
     "altnames": "Echoes of Killarney / Well I Know What Kitty Wants / Denis McMahon's",
-    "refno": "1171",
+    "refno": "1171, 4021",
     "transcriptlink": "https://tunearch.org/wiki/Art_O%27Keeffe%27s_(3)",
-    "refsettinglink": "https://thesession.org/tunes/5945"
+    "refsettinglink": "https://thesession.org/tunes/5945, https://tunearch.org/wiki/Art_O%27Keeffe%27s_(3)"
   },
   {
     "tuneref": "CRE 2 # 122",
@@ -463,7 +463,7 @@
     "tunename": "Denis Murphy's",
     "tunetype": "Polka",
     "altnames": "Casey's",
-    "refno": "1162, 4101",
+    "refno": "1162",
     "transcriptlink": "https://thesession.org/tunes/357#setting49477",
     "refsettinglink": "https://thesession.org/tunes/357"
   },
@@ -952,6 +952,15 @@
     "refno": "6063",
     "transcriptlink": "https://thesession.org/tunes/10855#setting39640",
     "refsettinglink": "https://thesession.org/tunes/10855, https://tunearch.org/wiki/Kilcummin_Slide_(The)"
+  },
+  {
+    "tuneref": "CICD # 3000",
+    "tunename": "King's",
+    "tunetype": "Reel",
+    "altnames": "George the Fourth / King George the IV",
+    "refno": "5261",
+    "transcriptlink": "",
+    "refsettinglink": "https://thesession.org/tunes/3859, https://tunearch.org/wiki/King%27s_Reel_(The)"
   },
   {
     "tuneref": "CRE 5 # 170",
@@ -1695,7 +1704,7 @@
     "tuneref": "CRE 5 # 159",
     "tunename": "Silver Slipper",
     "tunetype": "Reel",
-    "altnames": "Ríl an tSlipéir Airgid / Streams of Poolaphuca No. 1 / Streams of Poulaphouca No. 1 / Streams of Pol-A-Phooka No. 1",
+    "altnames": "Ríl an tSlipéir Airgid / Streams of Poolaphuca No. 1 / Streams of Poulaphouca No. 1 / Streams of Pol-A-Phooka No. 1",
     "refno": "7131",
     "transcriptlink": "https://thesession.org/tunes/16370#setting51001, https://tunearch.org/wiki/Silver_Slipper_Reel_(The)",
     "refsettinglink": "https://thesession.org/tunes/16370"
@@ -1717,6 +1726,15 @@
     "refno": "9081",
     "transcriptlink": "",
     "refsettinglink": "https://tunearch.org/wiki/First_of_May_(1)"
+  },
+  {
+    "tuneref": "JOLSL # 325",
+    "tunename": "Slopes of Sliabh Luachra",
+    "tunetype": "Slide",
+    "altnames": "Follow Me Down to Carlow",
+    "refno": "4031",
+    "transcriptlink": "",
+    "refsettinglink": "https://thesession.org/tunes/12634, https://tunearch.org/wiki/Slopes_of_Sliabh_Luachra_(The)"
   },
   {
     "tuneref": "JOLSL # 368",
@@ -1821,8 +1839,8 @@
     "tuneref": "DL 2 p#47",
     "tunename": "Tarrant's No. 2",
     "tunetype": "Polka",
-    "altnames": "Julia Clifford's / Lacka Cross",
-    "refno": "1072, 21032",
+    "altnames": "Lacka Cross / Julia Clifford's / Denis Murphy's",
+    "refno": "1072, 4101, 21032",
     "transcriptlink": "https://thesession.org/tunes/11314#setting23882",
     "refsettinglink": "https://thesession.org/tunes/11314"
   },
@@ -1883,7 +1901,7 @@
   {
     "tuneref": "CRE 2 # 57",
     "tunename": "Tom Connor's",
-    "tunetype": "Slide",
+    "tunetype": "Jig",
     "altnames": "Port Taim Uí Chonchúir",
     "refno": "4901",
     "transcriptlink": "https://tunepal.org/index.html#!/tune/1440-cre2.abc-5-Tom~Connors~~Jig~%2525~cre2%253Cbb, http://www.capeirish.com/ittl/tunefolders/18/182/182-plus/182057.pdf",
@@ -1980,38 +1998,11 @@
     "refsettinglink": "https://thesession.org/tunes/6302"
   },
   {
-    "tuneref": "CICD # 3000",
-    "tunename": "Untitled Reel",
-    "tunetype": "Reel",
-    "altnames": "",
-    "refno": "5261",
-    "transcriptlink": "",
-    "refsettinglink": ""
-  },
-  {
-    "tuneref": "TMP # 4011",
+    "tuneref": "MISC # 5",
     "tunename": "Untitled Slide",
     "tunetype": "Slide",
-    "altnames": "",
+    "altnames": "Art O'Keeffe's No. 1",
     "refno": "4011",
-    "transcriptlink": "",
-    "refsettinglink": ""
-  },
-  {
-    "tuneref": "TMP # 4021",
-    "tunename": "Untitled Slide",
-    "tunetype": "Slide",
-    "altnames": "",
-    "refno": "4021",
-    "transcriptlink": "",
-    "refsettinglink": ""
-  },
-  {
-    "tuneref": "TMP # 4031",
-    "tunename": "Untitled Slide",
-    "tunetype": "Slide",
-    "altnames": "",
-    "refno": "4031",
     "transcriptlink": "",
     "refsettinglink": ""
   },
@@ -2043,10 +2034,10 @@
     "refsettinglink": "https://tunearch.org/wiki/T%C3%A1_an_coileach_ag_f%C3%B3gairt_an_lae_(1)"
   },
   {
-    "tuneref": "JOLSL # 245",
+    "tuneref": "CRE 2 # 114",
     "tunename": "Willie Reidy's No.2",
     "tunetype": "Polka",
-    "altnames": "",
+    "altnames": "Billy Mahony's / Newmarket",
     "refno": "4041",
     "transcriptlink": "",
     "refsettinglink": "https://thesession.org/tunes/22993"

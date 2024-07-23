@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="#ProjectDenis explores the repertoire of the Sliabh Luachra music legend, fiddle player Denis Murphy (1910–1974).">
+    <title>Project Denis Prototype</title>
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" href="styles/tools-common-styles.css">
+    <link rel="stylesheet" href="styles/dm-toolkit.css">
+    <link rel="stylesheet" href="components/dm-helper/dm-helper.css">
+    <link rel="stylesheet" href="components/dm-popovers/dm-popovers.css">
+    <link rel="stylesheet" href="components/dm-modals/dm-modals.css">
+    <link rel="stylesheet" href="components/dm-tracklist/dm-tracklist.css">
+    <link rel="stylesheet" href="components/dm-search/dm-search.css">
+    <link rel="stylesheet" href="styles/dm-themes-override.css">
+    <script type="module" src="modules/dm-app.js"></script>
+</head>
+<body class="star">
+    <header class="header-main">
+        <nav class="header-container"> 
+            <button class="link-btn github-btn" title="#ProjectDenis Toolkit on GitHub" tabindex="-1">
+                <a href="https://github.com/anton-bregolas/ProjectDenisToolkit/" target="_blank" class="link-icon-container" ria-label="Link to Project Denis Toolkit on GitHub">
+                    <svg class="link-icon github-icon-dark" aria-hidden="true"><use href="assets/icons/icons.svg#nav-icon-github"></use></svg>
+                </a>
+            </button>
+            <button class="link-btn tunetable-btn" title="Tunetable: App for making tunelists" tabindex="-1">
+                <a href="https://anton-bregolas.github.io/Tunetable" target="_blank" class="link-icon-container" aria-label="Link to Tunetable app">
+                    <svg class="link-icon" aria-hidden="true"><use href="assets/icons/icons.svg#nav-icon-tunelist"></use></svg>
+                </a>
+            </button>
+            <button class="link-btn tso-btn" title="Denis Murphy transcriptions on The Session" tabindex="-1">
+                <a href="https://thesession.org/members/26966/tags/ProjectDenis" target="_blank" class="link-icon-container" aria-label="Link to Project Denis transcriptions on The Session">
+                    <svg class="link-icon" aria-hidden="true"><use href="assets/icons/icons.svg#nav-icon-abc"></use></svg>
+                </a>
+            </button>
+            <button id="collections-header-btn" class="app-btn hidden" title="Open Collections" data-generates="cols">
+                <svg class="app-icon" aria-hidden="true"><use href="assets/icons/icons.svg#action-icon-records"></use></svg>
+            </button>
+            <button id="tracklist-header-btn" class="app-btn hidden" title="Go to Tracklist" data-generates="tracks">
+                <svg class="app-icon" aria-hidden="true"><use href="assets/icons/icons.svg#nav-icon-tunelist"></use></svg>
+            </button>
+            <button id="tunelist-header-btn" class="app-btn hidden" title="Open Tunelist" data-generates="tunes">
+                <svg class="app-icon" aria-hidden="true"><use href="assets/icons/icons.svg#action-icon-music"></use></svg>
+            </button>
+            <button id="theme-toggle-btn" class="theme-btn" title="Change Color Theme" aria-label="Select color theme. The Star Above The Garter theme is on" popovertarget="theme-picker-popover">
+                <svg class="theme-icon nav-icon-theme" aria-hidden="true"><use href="assets/icons/icons.svg#nav-icon-theme"></use></svg>
+            </button>
+            <section id="theme-picker-popover" popover>
+                <button id="dm-btn-theme-dark" class="theme-btn" data-theme="dark" title="Dark theme">
+                    <svg class="theme-icon theme-icon-moon" aria-hidden="true"><use href="assets/icons/icons.svg#theme-icon-moon"></use></svg>
+                </button>
+                <button id="dm-btn-theme-star" class="theme-btn hidden" data-theme="star" title="The Star Above The Garter theme">
+                    <svg class="theme-icon theme-icon-star" aria-hidden="true"><use href="assets/icons/icons.svg#theme-icon-star"></use></svg>
+                </button>
+                <button id="dm-btn-theme-rain" class="theme-btn" data-theme="rainy" title="Rainy theme">
+                    <svg class="theme-icon theme-icon-rainy" aria-hidden="true"><use href="assets/icons/icons.svg#theme-icon-rain"></use></svg>
+                </button>
+                <button id="dm-btn-theme-papsofanu" class="theme-btn" data-theme="papsofanu" title="The Paps of Anu theme">
+                    <svg class="theme-icon theme-icon-rainbow" aria-hidden="true"><use href="assets/icons/icons.svg#theme-icon-tree"></use></svg>
+                </button>
+                <button id="dm-btn-theme-light" class="theme-btn" data-theme="light" title="Light theme">
+                    <svg class="theme-icon theme-icon-sun" aria-hidden="true"><use href="assets/icons/icons.svg#theme-icon-sun"></use></svg>
+                </button>
+            </section>
+        </nav>
+    </header>
+    <main>
+        <div class="main-container">
+            <h1><a id="top" href="#top" class="dm-section-anchor" aria-label="Project Denis Prototype: Main section top">#ProjectDenis</a> Prototype</h1>
+            <section class="dm-launch">
+                <div class="dm-launch-container">
+                    <button id="dm-btn-start-exploring" class="btn" autofocus>
+                        <span class="btn-text">Start Exploring
+                            <span class="action-icon-container action-icon-launch" aria-hidden="true">
+                                <svg class="action-icon"><use href="assets/icons/icons.svg#action-icon-launch"></use></svg>
+                            </span>
+                        </span>
+                    </button>
+                </div>
+            </section>
+            <section id="dm-search" hidden>
+                <div class="dm-search-container">
+                    <fieldset id="dm-search-data-select" class="dm-search-radio-container" role="radiogroup">
+                        <legend class="dm-search-radio-legend">
+                            <h2 class="dm-section-header"><a id="search" href="#search" class="dm-section-anchor nav-link" aria-label="Section Search"><b><span class="invisible">#</span>Search:</b></a> Tracks, Collections, Tunes</h2>
+                        </legend>
+                        <label for="data-search-tracks" class="dm-label-radio">
+                            <h3>Tracks</h3>
+                            <input type="radio" id="data-search-tracks" class="dm-btn-radio" name="search-data-type" value="tracks" checked="checked">
+                        </label>
+                        <label for="data-search-cols" class="dm-label-radio">
+                            <h3>Collections</h3>
+                            <input type="radio" id="data-search-cols" class="dm-btn-radio" name="search-data-type" value="cols">
+                        </label>
+                        <label for="data-search-tunes" class="dm-label-radio">
+                            <h3>Tunes</h3>
+                            <input type="radio" id="data-search-tunes" class="dm-btn-radio" name="search-data-type" value="tunes">
+                        </label>
+                    </fieldset>
+                    <section class="dm-search-engine" aria-label="Denis Murphy Search Engine">
+                        <input id="dm-search-input" type="search" class="input-field" placeholder="Input keywords to search" aria-expanded="false" autocomplete="off">
+                        <section id="dm-search-results" aria-hidden="true" aria-live="polite" aria-label="Search Results Collapsed">
+                            <div class="dm-search-results-group" tabindex="-1">
+                                <div class="dm-search-results-container">
+                                    <template class="dm-template-search-item">
+                                        <button class="dm-btn-search-item dm-btn-open-track">
+                                            <span class="dm-search-item-type"></span>
+                                            <span class="dm-search-item-name"></span>
+                                            <span class="dm-search-item-refno"></span>
+                                        </button>
+                                    </template>
+                                </div>
+                                <button class="dm-btn-search-wrap" aria-expanded="false" aria-hidden="true" tabindex="-1">
+                                    <span class="action-icon-container action-icon-wrap">
+                                        <svg class="action-icon" aria-hidden="true"><use href="assets/icons/icons.svg#action-icon-wrap-down"></use></svg>
+                                    </span>
+                                    <span id="dm-search-results-found" class="dm-search-counter"></span>
+                                </button>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+                <section class="dm-search-db-counters"><p><span class="dm-cols-counter">0</span> Collections, <span class="dm-tunes-counter">0</span> Tunes, <span class="dm-tracks-counter">0</span> Track-Items</p></section>
+            </section>
+            <section id="dm-explore" class="dm-generator" hidden>
+                <h2 class="dm-section-header"><a id="explore" href="#explore" class="dm-section-anchor nav-link" aria-label="Section Explore"><b><span class="invisible">#</span>Explore:</b></a> Tunelist, Discography, Tracklist</h2>
+                <section class="generator-container">
+                    <button id="dm-btn-generate-tunelist" class="btn" data-generates="tunes"><span class="btn-text dm-generate-btn-container">Show Tunelist
+                        <span class="action-icon-container action-icon-tunelist" aria-hidden="true">
+                            <svg class="action-icon" aria-hidden="true"><use href="assets/icons/icons.svg#action-icon-music"></use></svg>
+                        </span>
+                    </span></button>
+                    <button id="dm-btn-generate-collections" class="btn" data-generates="cols"><span class="btn-text dm-generate-btn-container">Show Collections
+                        <span class="action-icon-container action-icon-collections" aria-hidden="true">
+                            <svg class="action-icon" aria-hidden="true"><use href="assets/icons/icons.svg#action-icon-records-crop"></use></svg>
+                        </span>
+                    </span></button>
+                    <button id="dm-btn-generate-tracklist" class="btn" aria-expanded="false" aria-controls="dm-tracklist-output" data-generates="tracks">
+                        <span class="btn-text dm-generate-btn-container"><span class="dm-tracklist-action-status"></span> Tracklist
+                        <span class="action-icon-container action-icon-tracklist" aria-hidden="true">
+                            <svg class="action-icon" aria-hidden="true"><use href="assets/icons/icons.svg#nav-icon-tunelist"></use></svg>
+                        </span>
+                    </span></button>
+                </section>
+                <section id="dm-tracklist-output" class="dm-tracklist-container hidden" aria-hidden="true" aria-label="Denis Murphy Tracklist">
+                    <table id="dm-tracklist-table" aria-label="Tracklist Table: Click track row to view Track card, click header cell to sort">
+                        <thead id="dm-tracklist-header">
+                            <tr class="dm-tracklist-row dm-tracklist-header-row">
+                                <th class="dm-tracklist-item dm-tracklist-header-item" data-value="refno">
+                                    <div class="dm-tracklist-header-arrows" aria-hidden="true"></div>
+                                    <button class="dm-btn-tracklist-header" aria-label="Tracklist Reference Number" title="Tracklist Reference Number">Ref. No.</button>
+                                </th>
+                                <th class="dm-tracklist-item dm-tracklist-header-item" data-value="trackno">
+                                    <div class="dm-tracklist-header-arrows" aria-hidden="true"></div>
+                                    <button class="dm-btn-tracklist-header" aria-label="Album Track Number" title="Album Track Number">Track No.</button>
+                                </th>
+                                <th class="dm-tracklist-item dm-tracklist-header-item" data-value="tunename">
+                                    <div class="dm-tracklist-header-arrows" aria-hidden="true"></div>
+                                    <button class="dm-btn-tracklist-header" aria-label="Tune Title" title="Tune Title in Collection">Tune Title</button>
+                                </th>
+                                <th class="dm-tracklist-item dm-tracklist-header-item" data-value="tunetype">
+                                    <div class="dm-tracklist-header-arrows" aria-hidden="true"></div>
+                                    <button class="dm-btn-tracklist-header" aria-label="Tune Type" title="Tune Type">Tune Type</button>
+                                </th>
+                                <th class="dm-tracklist-item dm-tracklist-header-item" data-value="tuneref">
+                                    <div class="dm-tracklist-header-arrows" aria-hidden="true"></div>
+                                    <button class="dm-btn-tracklist-header" aria-label="Printed Collection Reference" title="Printed Collection Reference">Col. Ref.</button>
+                                </th>
+                                <th class="dm-tracklist-item dm-tracklist-header-item" data-value="recyear">
+                                    <div class="dm-tracklist-header-arrows" aria-hidden="true"></div>
+                                    <button class="dm-btn-tracklist-header" aria-label="Year Recorded" title="Year Recorded">Year Rec.</button>
+                                </th>
+                                <th class="dm-tracklist-item dm-tracklist-header-item" data-value="pubyear">
+                                    <div class="dm-tracklist-header-arrows" aria-hidden="true"></div>
+                                    <button class="dm-btn-tracklist-header" aria-label="Year Published" title="Year Published">Year Pub.</button>
+                                </th>
+                                <th class="dm-tracklist-item dm-tracklist-header-item" data-value="performers">
+                                    <div class="dm-tracklist-header-arrows" aria-hidden="true"></div>
+                                    <button class="dm-btn-tracklist-header" aria-label="Performers" title="Performers">Performers</button>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="dm-tracklist" aria-live="polite" aria-label="Tracklist sorted by: refno; order: ascending"></tbody>
+                    </table>
+                    <article id="dm-popover-card-track" popover class="dm-track-card dm-popover-card" aria-label="Track Card" tabindex="0">
+                        <header class="dm-track-grid-header dm-popover-card-header">
+                            <button id="dm-btn-track-card-close" class="dm-btn-popover-close dm-btn-popover-close-x dm-btn-card-nav" aria-label="Close Track Card" title="Close Track Card"></button>
+                            <h3 class="track-grid-hrefno" data-type="refno"></h3>
+                            <h2 class="track-grid-htitle" aria-live="polite" data-type="tunename"></h2>
+                            <nav class="dm-track-grid-nav">
+                                <button class="dm-track-grid-item dm-btn-prev-track dm-btn-card-nav" title="Show previous track" aria-label="Show previous track"></button>
+                                <div class="dm-track-grid-item track-grid-reflink"></div>
+                                <button class="dm-track-grid-item dm-btn-prev-track dm-btn-card-nav" hidden title="Show previous track" aria-label="Show previous track"></button>
+                                <button class="dm-track-grid-item dm-btn-next-track dm-btn-card-nav" title="Show next track" aria-label="Show next track"></button>
+                            </nav>
+                        </header>
+                        <div class="dm-track-grid-body">
+                            <h4 class="dm-track-grid-item track-grid-performers-head">Performers:</h4>
+                            <p class="dm-track-grid-item track-grid-performers-cont" data-type="performers"></p>
+                            <section class="dm-track-grid-source">
+                                <h4 class="dm-track-grid-item track-grid-colno-head">Source Collection:</h4>
+                                <div class="dm-track-grid-item track-grid-colno-cont"></div>
+                                <h4 class="dm-track-grid-item track-grid-coltrackno-head">Source Track No.:</h4>
+                                <div class="dm-track-grid-item track-grid-coltrackno-cont"></div>
+                                <h4 class="dm-track-grid-item track-grid-transcr-head">Tune Reference:</h4>
+                                <div class="dm-track-grid-item track-grid-transcr-cont"></div>
+                            </section>                           
+                            <h4 class="dm-track-grid-item track-grid-category-head">Track Category:</h4>
+                            <p class="dm-track-grid-item track-grid-category-cont" data-type="category"></p>
+                            <h4 class="dm-track-grid-item track-grid-yearrec-head">Year Recorded:</h4>
+                            <p class="dm-track-grid-item track-grid-yearrec-cont" data-type="recyear"></p>
+                            <h4 class="dm-track-grid-item track-grid-yearpub-head">Year Released:</h4>
+                            <p class="dm-track-grid-item track-grid-yearpub-cont" data-type="pubyear"></p>
+                            <h4 class="dm-tune-grid-item track-grid-alttitle-head">Tune Alt. Titles:</h4>
+                            <p class="dm-tune-grid-item track-grid-alttitle-cont" data-type="altnames"></p>
+                            <h4 class="dm-track-grid-item track-grid-notes-head">Track Notes:</h4>
+                            <p class="dm-track-grid-item track-grid-notes-cont" data-type="tracknotes"></p>
+                        </div>
+                        <section class="dm-track-grid-footer">
+                            <button class="dm-btn-popover-close dm-btn-card-popover-close dm-btn-card-nav" aria-label="Close Track Card" title="Close Track Card"></button>
+                        </section>
+                    </article>
+                </section>
+            </section>
+            <section id="dm-discover" hidden>
+                <h2 class="dm-section-header"><a id="discover" href="#discover" class="dm-section-anchor nav-link" aria-label="Section Discover"><b><span class="invisible">#</span>Discover:</b></a> Reference Materials</h2>
+                <section class="generator-container reference-container">
+                    <button id="dm-btn-generate-reflist" class="btn" data-generates="refs"><span class="btn-text dm-generate-btn-container">Key to References
+                        <span class="action-icon-container action-icon-refbooks" aria-hidden="true">
+                            <svg class="action-icon" aria-hidden="true"><use href="assets/icons/icons.svg#action-icon-books"></use></svg>
+                        </span>
+                    </span></button>
+                    <button id="dm-btn-generate-linklist" class="btn" data-generates="refs"><span class="btn-text dm-generate-btn-container">Links to Resources
+                        <span class="action-icon-container action-icon-reflinks" aria-hidden="true">
+                            <svg class="action-icon" aria-hidden="true"><use href="assets/icons/icons.svg#action-icon-bookmarks"></use></svg>
+                        </span>
+                    </span></button>
+                </section>
+            </section>
+            <section id="dm-dialogs" class="hidden" aria-hidden="true">
+                <dialog id="dm-modal-list-tunes" class="dm-modal-list" aria-hidden="true" aria-label="Denis Murphy Tunelist">
+                    <header class="dm-modal-list-header">
+                        <div id="dm-modal-list-header-container" class="dm-modal-list-header-container">
+                            <h2 class="dm-modal-list-title nowrap">#ProjectDenis: Tunelist</h2>
+                            <button id="dm-btn-tunelist-close" class="btn dm-btn-modal"><span class="btn-text">Close Tunelist</span></button>
+                        </div>
+                    </header>
+                    <section id="dm-tunelist" class="dm-tunelist-container" aria-label="Tunelist grid, select a tune"></section>
+                    <article id="dm-popover-card-tune" popover class="dm-tune-card dm-popover-card" aria-label="Tune Card" tabindex="0">
+                        <header class="dm-tune-grid-header dm-popover-card-header">
+                            <button id="dm-btn-tune-card-close" class="dm-btn-popover-close dm-btn-popover-close-x dm-btn-card-nav" aria-label="Close Card and View Tunelist" title="Close Card and View Tunelist"></button>
+                            <h3 class="tune-grid-htuneref" data-type="tuneref"></h3>
+                            <h2 class="tune-grid-htitle" aria-live="polite" data-type="tunename"></h2>
+                            <nav class="dm-tune-nav-mobile dm-tune-grid-footer">
+                                <button class="dm-btn-tune-card-nav dm-btn-prev-tune dm-btn-card-nav" title="Show previous tune" aria-label="Show previous tune"></button>
+                                <button class="dm-btn-popover-close dm-btn-card-dialog-close dm-btn-card-nav" aria-label="Quit to Main Page" title="Quit to Main Page"></button>
+                                <button class="dm-btn-tune-card-nav dm-btn-next-tune dm-btn-card-nav" title="Show next tune" aria-label="Show next tune"></button>
+                            </nav>
+                        </header>
+                        <div class="dm-tune-grid-body">
+                            <h4 class="dm-tune-grid-item tune-grid-alttitle-head">Tune Alt. Titles:</h4>
+                            <p class="dm-tune-grid-item tune-grid-alttitle-cont" data-type="altnames"></p>
+                            <h4 class="dm-tune-grid-item tune-grid-refno-head">Track Reference No.:</h4>
+                            <p class="dm-tune-grid-item tune-grid-refno-cont" data-type="refno"></p>
+                            <h4 class="dm-tune-grid-item tune-grid-transcr-head">Tune Transcription:</h4>
+                            <p class="dm-tune-grid-item tune-grid-transcr-cont" data-type="transcriptlink"></p>
+                            <h4 class="dm-tune-grid-item tune-grid-tunereffull-head">Printed Collection Reference:</h4>
+                            <p class="dm-tune-grid-item tune-grid-tunereffull-cont" data-type="refdetails"></p>
+                            <h4 class="dm-tune-grid-item tune-grid-refsetting-head">What Tune is This?</h4>
+                            <p class="dm-tune-grid-item tune-grid-refsetting-cont" data-type="refsettinglink"></p>
+                        </div>
+                        <nav class="dm-tune-grid-footer">
+                            <button class="dm-btn-tune-card-nav dm-btn-prev-tune dm-btn-card-nav" title="Show previous tune" aria-label="Show previous tune"></button>
+                            <button class="dm-btn-popover-close dm-btn-card-dialog-close dm-btn-card-nav" aria-label="Quit to Main Page" title="Quit to Main Page"></button>
+                            <button class="dm-btn-tune-card-nav dm-btn-next-tune dm-btn-card-nav" title="Show next tune" aria-label="Show next tune"></button>
+                        </nav>
+                    </article>
+                    <div class="dm-status-bar" aria-live="assertive"></div>
+                </dialog>
+                <dialog id="dm-modal-list-cols" class="dm-modal-list" aria-hidden="true" aria-label="Denis Murphy Collections">
+                    <header class="dm-modal-list-header">
+                        <div id="dm-modal-list-header-container" class="dm-modal-list-header-container">
+                            <h2 class="dm-modal-list-title nowrap">#ProjectDenis: Collections</h2>
+                            <button id="dm-btn-colslist-close" class="btn dm-btn-modal"><span class="btn-text">Close Collections</span></button>
+                        </div>
+                    </header>
+                    <section id="dm-collist-wrapper" class="dm-collist-container" tabindex="-1">
+                        <table id="dm-collist-table" class="dm-list-table" aria-labelledby="dm-collist-caption">
+                            <caption id="dm-collist-caption" class="dm-list-table-caption">
+                                <div class="dm-table-caption-wrapper">
+                                    <h2>List of Catalogued Collections</h2>
+                                </div>
+                            </caption>
+                            <thead id="dm-collist-header" class="dm-list-table-header">
+                                <tr class="dm-collist-row">
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Collection Reference Number">Collection Ref.</h3>
+                                    </th>
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Collection Name">Collection Name</h3>
+                                    </th>
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Collection Details">Collection Details</h3>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="dm-collist"></tbody>
+                        </table>
+                    </section>    
+                    <article id="dm-popover-card-col" popover class="dm-col-card dm-popover-card" aria-label="Collection Card" tabindex="0">
+                        <header class="dm-col-grid-header dm-popover-card-header">
+                            <button id="dm-btn-col-card-close" class="dm-btn-popover-close dm-btn-popover-close-x dm-btn-card-nav" aria-label="Close Card and View Collections" title="Close Card and View Collections"></button>
+                            <h3><span class="col-grid-hrefno" data-type="colrefno"></span> | <span class="col-grid-hrefcode" data-type="refcode"></span></h3>
+                            <h2 class="col-grid-htitle" aria-live="polite" data-type="colname"></h2>
+                            <nav class="dm-col-grid-nav">
+                                <button class="dm-col-grid-item dm-btn-prev-col dm-btn-card-nav" title="Show previous Collection" aria-label="Show previous Collection"></button>
+                                <div class="dm-col-grid-item col-grid-reflink"></div>
+                                <button class="dm-col-grid-item dm-btn-prev-col dm-btn-card-nav" hidden title="Show previous Collection" aria-label="Show previous Collection"></button>
+                                <button class="dm-col-grid-item dm-btn-next-col dm-btn-card-nav" title="Show next Collection" aria-label="Show next Collection"></button>
+                            </nav>
+                        </header>
+                        <div class="dm-col-grid-body">
+                            <h4 class="dm-col-grid-item col-grid-performers-head">Performers:</h4>
+                            <p class="dm-col-grid-item col-grid-performers-cont" data-type="performers"></p>
+                            <h4 class="dm-col-grid-item col-grid-source-head">Source:</h4>
+                            <p class="dm-col-grid-item col-grid-source-cont" data-type="source"></p>
+                            <section class="dm-col-grid-links">
+                                <div class="dm-col-grid-item col-grid-srclink">Link to Source</div>
+                                <div class="dm-col-grid-item col-grid-dgslink">Discogs</div>
+                                <div class="dm-col-grid-item col-grid-tsolink">The Session</div>
+                                <div class="dm-col-grid-item col-grid-itilink">Irishtune.info</div>
+                                <div class="dm-col-grid-item col-grid-rmtlink">The Rushy Mountain</div>
+                                <div class="dm-col-grid-item col-grid-strlink">Streaming</div>
+                            </section>
+                            <h4 class="dm-col-grid-item col-grid-coltype-head">Recording Type:</h4>
+                            <p class="dm-col-grid-item col-grid-coltype-cont" data-type="coltype"></p>
+                            <h4 class="dm-col-grid-item col-grid-yearrec-head">Year Recorded:</h4>
+                            <p class="dm-col-grid-item col-grid-yearrec-cont" data-type="recyear"></p>
+                            <h4 class="dm-col-grid-item col-grid-yearpub-head">Year Released:</h4>
+                            <p class="dm-col-grid-item col-grid-yearpub-cont" data-type="pubyear"></p>
+                            <h4 class="dm-col-grid-item col-grid-comments-head">Comments:</h4>
+                            <section class="dm-col-grid-item col-grid-comments-cont"></section>
+                        </div>
+                        <section class="dm-col-grid-footer">                            
+                            <button class="dm-btn-popover-close dm-btn-card-popover-close dm-btn-card-nav" aria-label="Close Card and View Collections" title="Close Card and View Collections"></button>
+                            <button class="dm-btn-popover-close dm-btn-card-dialog-close dm-btn-card-nav" aria-label="Quit to Main Page" title="Quit to Main Page"></button>
+                        </section>
+                    </article>
+                    <div class="dm-status-bar" aria-live="assertive"></div>
+                </dialog>
+                <dialog id="dm-modal-list-references" class="dm-modal-list" aria-hidden="true" aria-label="Key to Referenced Materials">
+                    <header class="dm-modal-list-header">
+                        <div class="dm-modal-list-header-container">
+                            <h2 class="dm-modal-list-title dm-references-title">#ProjectDenis: Key to References</h2>
+                            <button id="dm-btn-references-close" class="btn dm-btn-modal"><span class="btn-text">Close List</span></button>
+                        </div>
+                    </header>
+                    <section id="dm-references-wrapper" class="dm-collist-container" tabindex="-1">
+                        <table id="dm-references-table" class="dm-reflist-table dm-list-table" aria-labelledby="dm-reflist-caption">
+                            <caption id="dm-reflist-caption" class="dm-list-table-caption">
+                                <div class="dm-table-caption-wrapper">
+                                    <h2>Printed Music Collections</h2>
+                                </div>
+                            </caption>
+                            <thead id="dm-reflist-header" class="dm-list-table-header">
+                                <tr class="dm-collist-row">
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Reference Item Code">Ref. Code</h3>
+                                    </th>
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Reference Item Name">Ref. Item Name</h3>
+                                    </th>
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Reference Item Details">Ref. Item Details</h3>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="dm-references"></tbody>
+                        </table>
+                        <br>
+                        <table id="dm-links-table" class="dm-reflist-table dm-list-table" aria-labelledby="dm-linklist-caption">
+                            <caption id="dm-linklist-caption" class="dm-list-table-caption">
+                                <div class="dm-table-caption-wrapper">
+                                    <h2>Links to Resources</h2>
+                                </div>
+                            </caption>
+                            <thead id="dm-linkslist-header" class="dm-list-table-header">
+                                <tr class="dm-collist-row">
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Link Item Code">Link Code</h3>
+                                    </th>
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Link Item Name">Link Item Name</h3>
+                                    </th>
+                                    <th class="dm-collist-item">
+                                        <h3 class="dm-collist-text" aria-label="Link Item Details">Link Item Details</h3>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="dm-reflinks"></tbody>
+                        </table>
+                    </section>
+                <article id="dm-popover-card-reflinks" popover class="dm-ref-card dm-popover-card" aria-label="Reference Item Details">
+                    <header class="dm-ref-grid-header dm-popover-card-header">
+                        <button id="dm-btn-ref-card-close" class="dm-btn-popover-close dm-btn-popover-close-x dm-btn-card-nav" aria-label="Close Card and View List of References" title="Close Card and List of References"></button>
+                        <h3 class="ref-grid-hcode"></h3>
+                        <h2 class="ref-grid-htitle"></h2>
+                    </header>
+                    <div class="dm-ref-grid-body"></div>
+                </article>
+                <div class="dm-status-bar" aria-live="assertive"></div>
+                <dialog>
+            </section>
+        </div>
+        <article id="dm-helper-main" class="dm-helper-container" inert>
+            <button class="dm-btn-helper" aria-label="App Helper">
+                <picture id="dm-helper-star" class="dm-helper-image">
+                    <source type="image/webp" 
+                            srcset="
+                            assets/images/dm-helper-purple-mini.webp?width=200 200w,
+                            assets/images/dm-helper-purple-mini.webp?width=250 250w,
+                            assets/images/dm-helper-purple.webp?width=300 300w,
+                            assets/images/dm-helper-purple.webp?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <source type="image/png" 
+                            srcset="
+                            assets/images/dm-helper-purple-mini.png?width=200 200w,
+                            assets/images/dm-helper-purple-mini.png?width=250 250w,
+                            assets/images/dm-helper-purple.png?width=300 300w,
+                            assets/images/dm-helper-purple.png?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <img src="assets/images/dm-helper-purple.png" draggable="false" alt="Image of Denis the Little App Helper playing the fiddle">
+                </picture>
+                <picture id="dm-helper-dark" class="dm-helper-image" hidden>
+                    <source type="image/webp" 
+                            srcset="
+                            assets/images/dm-helper-green-mini.webp?width=200 200w,
+                            assets/images/dm-helper-green-mini.webp?width=250 250w,
+                            assets/images/dm-helper-green.webp?width=300 300w,
+                            assets/images/dm-helper-green.webp?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <source type="image/png" 
+                            srcset="
+                            assets/images/dm-helper-green-mini.png?width=200 200w,
+                            assets/images/dm-helper-green-mini.png?width=250 250w,
+                            assets/images/dm-helper-green.png?width=300 300w,
+                            assets/images/dm-helper-green.png?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <img src="assets/images/dm-helper-green.png" draggable="false" alt="Image of Denis the Little App Helper playing the fiddle" loading="lazy">
+                </picture>
+                <picture id="dm-helper-papsofanu" class="dm-helper-image" hidden>
+                    <source type="image/webp" 
+                            srcset="
+                            assets/images/dm-helper-mango-mini.webp?width=200 200w,
+                            assets/images/dm-helper-mango-mini.webp?width=250 250w,
+                            assets/images/dm-helper-mango.webp?width=300 300w,
+                            assets/images/dm-helper-mango.webp?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <source type="image/png" 
+                            srcset="
+                            assets/images/dm-helper-mango-mini.png?width=200 200w,
+                            assets/images/dm-helper-mango-mini.png?width=250 250w,
+                            assets/images/dm-helper-mango.png?width=300 300w,
+                            assets/images/dm-helper-mango.png?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <img src="assets/images/dm-helper-mango.png" draggable="false" alt="Image of Denis the Little App Helper playing the fiddle" loading="lazy">
+                </picture>
+                <picture id="dm-helper-rainy" class="dm-helper-image" hidden>
+                    <source type="image/webp" 
+                            srcset="
+                            assets/images/dm-helper-blue-mini.webp?width=200 200w,
+                            assets/images/dm-helper-blue-mini.webp?width=250 250w,
+                            assets/images/dm-helper-blue.webp?width=300 300w,
+                            assets/images/dm-helper-blue.webp?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <source type="image/png" 
+                            srcset="
+                            assets/images/dm-helper-blue-mini.png?width=200 200w,
+                            assets/images/dm-helper-blue-mini.png?width=250 250w,
+                            assets/images/dm-helper-blue.png?width=300 300w,
+                            assets/images/dm-helper-blue.png?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <img src="assets/images/dm-helper-blue.png" draggable="false" alt="Image of Denis the Little App Helper playing the fiddle" loading="lazy">
+                </picture>
+                <picture id="dm-helper-light" class="dm-helper-image" hidden>
+                    <source type="image/webp" 
+                            srcset="
+                            assets/images/dm-helper-pink-mini.webp?width=200 200w,
+                            assets/images/dm-helper-pink-mini.webp?width=250 250w,
+                            assets/images/dm-helper-pink.webp?width=300 300w,
+                            assets/images/dm-helper-pink.webp?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <source type="image/png" 
+                            srcset="
+                            assets/images/dm-helper-pink-mini.png?width=200 200w,
+                            assets/images/dm-helper-pink-mini.png?width=250 250w,
+                            assets/images/dm-helper-pink.png?width=300 300w,
+                            assets/images/dm-helper-pink.png?width=316 316w"
+                            sizes="(max-width: 360px) 200px, (max-width: 1200px) 250px, (max-width: 1980px) 300px, 15svw"
+                            draggable="false">
+                    <img src="assets/images/dm-helper-pink.png" draggable="false" alt="Image of Denis the Little App Helper playing the fiddle" loading="lazy">
+                </picture>
+            </button>
+        </article>
+        <article id="dm-popover-help" popover="manual" class="dm-help-card dm-tune-card dm-popover-card" aria-label="Help Menu" data-stage="0" tabindex="0" inert>
+            <div class="dm-help-card-container">
+                <div class="dm-help-body">
+                    <p class="dm-help-msg" aria-live="polite">Welcome to Project Denis, a prototype app that helps uncover the rich repertoire of the Sliabh Luachra fiddle legend Denis Murphy (1910–1974). Would you like to take a detailed guided tour of the app?</p>
+                    <div class="dm-help-options">
+                        <label for="dm-help-tour-checkbox" class="dm-checkbox-label">Show this on startup
+                            <input type="checkbox" id="dm-help-tour-checkbox" name="help-tour" class="dm-checkbox" value="1" title="Uncheck to skip welcome screen on app launch" aria-label="Uncheck to skip welcome screen on app launch" checked="checked">
+                        </label>
+                    </div>
+                </div>
+                <nav class="dm-help-nav-footer">
+                    <button class="dm-btn-help-card-nav dm-btn-help-prev" title="Show previous help message" aria-label="Show previous help message" hidden></button>
+                    <button class="dm-btn-help-card-nav dm-btn-help-ok" title="Confirm guided app tour action" autofocus></button>
+                    <button class="dm-btn-help-card-nav dm-btn-help-next" title="Show next help message" aria-label="Show next help message" hidden></button>
+                    <button class="dm-btn-help-card-nav dm-btn-help-skip" title="Quit guided app tour" aria-label="Quit guided app tour"></button>
+                </nav>
+            </div>
+        </article>
+    </main>
+    <footer class="dm-footer" hidden>
+        <p class="dm-footer-text">Built by <a href="https://www.youtube.com/@AntonBregolas" target="_blank">Anton Zille</a> in 2024</p>
+        <p class="dm-footer-text"><a href="https://github.com/anton-bregolas" target="_blank">GitHub</a> :: <a href="https://www.facebook.com/anton.bregolas/" target="_blank">Facebook</a> :: <a href="mailto:sliabhluachrahub@gmail.com">Еmаil</a></p>
+        <nav class="dm-footer-nav">
+            <button id="main-nav-btn" class="section-nav-btn" title="" aria-label="" popovertarget="dm-popover-nav-main">
+                <svg class="action-icon action-icon-sections shadowed" aria-hidden="true">
+                    <circle fill="none" cx="22.5" cy="22.5" r="21" stroke-width="2"></circle>
+                    <use href="assets/icons/icons.svg#action-icon-list"></use>
+                </svg>
+            </button>
+            <article id="dm-popover-nav-main" popover class="dm-nav-card" aria-label="Reference Item Details">
+                <header class="dm-nav-card-header">
+                    <button id="dm-btn-nav-card-close" class="dm-btn-popover-close dm-btn-popover-close-x dm-btn-card-nav" aria-label="Close Navigation Card" title="Close Navigation Card" autofocus></button>
+                    <span class="action-icon-container action-icon-top">
+                        <svg class="action-icon" aria-hidden="true"><use href="assets/icons/icons.svg#action-icon-wrap-up"></use></svg>
+                    </span>
+                    <div class="dm-nav-link-top">
+                        <a href="#top" class="nav-link" title="Go to top of page" aria-label="Go to top of page">
+                            Top
+                        </a>
+                    </div>
+                </header>
+                <div class="dm-nav-card-body">
+                    <ul>
+                        <li>
+                            <div class="link-wrapper">
+                                <a href="#search" class="nav-link" title="Go to section Search" aria-label="Go to section Search">
+                                    <span class="action-icon-container action-icon-search" aria-hidden="true">
+                                        <svg class="action-icon"><use href="assets/icons/icons.svg#action-icon-search"></use></svg>
+                                    </span>
+                                    Search
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="link-wrapper">
+                                <a href="#explore" class="nav-link" title="Go to section Explore" aria-label="Go to section Explore">
+                                    <span class="action-icon-container action-icon-tunelist" aria-hidden="true">
+                                        <svg class="action-icon"><use href="assets/icons/icons.svg#action-icon-music"></use></svg>
+                                    </span>
+                                    Explore
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="link-wrapper">
+                                <a href="#discover" class="nav-link" title="Go to section Discover" aria-label="Go to section Discover">
+                                    <span class="action-icon-container action-icon-refbooks" aria-hidden="true">
+                                        <svg class="action-icon"><use href="assets/icons/icons.svg#action-icon-books"></use></svg>
+                                    </span>
+                                    Discover
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </nav>
+        <div class="dm-status-bar" aria-live="assertive"></div>
+    </footer>
+</body>
+</html>

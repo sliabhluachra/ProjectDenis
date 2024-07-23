@@ -1,3 +1,5 @@
-#ProjectDenis
+#ProjectDenis Prototype v.1.0-beta
 ========================================================================================
-#ProjectDenis is a digital music project in tribute to the Sliabh Luachra legend, fiddle player Denis Murphy (1910–1974).
+#ProjectDenis explores the repertoire of the Sliabh Luachra music legend, fiddle player Denis Murphy (1910–1974). 
+
+This is the Client version of the app, for Toolkit version with tools for creating Tune DB [GitHub Pages]()

@@ -1,0 +1,485 @@
+/* #ProjectDenis: Modal Dialog Styles */
+
+body {
+  --tunelist-item-width: 18rem;
+  --collist-item-height: 5rem;
+  --tunelist-item-color: var(--primary-color-alt);
+  --tunelist-item-hover-color: #a300ff4f;
+  --collist-item-color: #2c3b4e;
+  --collist-item-border-color: #afafaf;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* Modal List Template */
+
+.dm-modal-list {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border: 0.3125rem solid var(--secondary-color-b);
+  border-radius: 0.5rem;
+  inset: unset;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  min-width: clamp(320px, calc(100svw - 2.4em), 120rem);
+  max-height: min(calc(100svh - 2.4em), 66.5rem);
+}
+
+.dm-modal-list::backdrop {
+  background-color: rgba(0, 78, 0, 0.25);
+  backdrop-filter: blur(1.5rem);
+}
+
+.dm-modal-list:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.dm-modal-list-header {
+  border-bottom: 0.3125rem solid var(--secondary-color-b);
+}
+
+.dm-modal-list-header-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between; 
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 1em;
+}
+
+.dm-modal-list-header-container > .btn {
+  width: calc(var(--tunelist-item-width));
+  padding: 0.75rem;
+  flex-grow: unset;
+}
+
+/* Tunelist */
+
+.dm-tunelist-container, 
+.dm-collist-container {
+  display: grid;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  min-height: 5rem;
+}
+
+.dm-tunelist-container {
+  display: grid;
+  justify-content: center;
+  scrollbar-gutter: stable both-edges;
+  grid-template-columns: repeat(auto-fill, minmax(var(--tunelist-item-width), 1fr));
+  gap: 0.75rem;
+  padding: 1.5em;
+}
+
+.dm-tunelist-container:focus-visible,
+.dm-collist-container:focus-visible {
+  outline: 0.2rem solid var(--focus-color);
+  outline-offset: 0.35rem;
+}
+
+.dm-tunelist-item-wrapper, .dm-tunelist-item {
+  display: flex;
+  flex: 1;
+  border: 1px dashed var(--focus-color);
+}
+
+.dm-tunelist-item-wrapper {
+  border-radius: 0.5rem;
+  padding: 0.25em;
+  width: minmax(var(--tunelist-item-width), 1fr);
+}
+
+.dm-tunelist-item {
+  flex-flow: column;
+  background-color: var(--tunelist-item-color);
+  overflow: hidden;
+  border-radius: 0.25rem;
+  padding: 0.25em;
+}
+
+.dm-tunelist-item:hover, .dm-tunelist-item:focus-visible {
+  background-color: var(--tunelist-item-hover-color);
+  outline-color: var(--focus-color);
+  outline-offset: 0.2rem;
+  border-radius: 0.25rem;
+}
+
+.dm-tunelist-item-title, .dm-tunelist-item-alttitle {
+  width: 100%;
+  color: var(--neutral-color);
+  text-wrap: nowrap;
+  overflow: clip;
+  text-align: center;
+  text-align-last: center;
+  text-overflow: ellipsis;
+  margin-bottom: 0.14rem;
+  line-height: 1.5rem;
+}
+
+.dm-tunelist-item-title {
+  font-size: var(--font-button);
+}
+
+.dm-tunelist-item-alttitle {
+  font-size: var(--font-small);
+  color: var(--neutral-color-alt);
+}
+
+/* Collection List */
+
+.dm-collist-container {
+  width: 100%;
+  grid-template-columns: 1fr;
+  padding: 1em;
+}
+
+#dm-collist-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.dm-collist-row {
+  background-color: var(--collist-item-color);
+  height: fit-content;
+  overflow: clip;
+  text-overflow: ellipsis;
+}
+
+.dm-table-caption-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.dm-list-table-caption {
+  height: var(--collist-item-height);
+  border: 3px solid var(--collist-item-border-color);
+  border-bottom: none;
+}
+
+.dm-list-table-caption h2 {
+  margin: 0;
+}
+
+.dm-list-table-caption,
+.dm-list-table-header .dm-collist-item {
+  padding: 0.25em;
+  height: 6rem;
+}
+
+.dm-list-table-header tr.dm-collist-row,
+.dm-list-table-caption {
+  background-color: color-mix(in srgb, var(--collist-item-color) 75%, black);
+}
+
+.dm-collist-item {
+  text-align: center;
+  padding: 1em;
+}
+
+.dm-collist-row,
+.dm-collist-item {
+  border: 3px solid var(--collist-item-border-color);
+}
+
+.dm-collist-item::before {
+  color: var(--secondary-color-b);
+  color: color-mix(in srgb, var(--secondary-color-b) 95%, white);
+  font-weight: bold;
+}
+
+.dm-collist-item, .dm-collist-item button {
+  font-size: var(--font-base);
+  text-shadow: 0 1px 1px black;
+  color: white;
+}
+
+.dm-collist-item button {
+  background-color: var(--secondary-color-a);
+  padding: 0.75em;
+  border-radius: 0.5rem;
+  border: 2px solid var(--focus-color-inverted);
+}
+
+.dm-collist-item button:is(:hover, :focus, :focus-visible) {
+  outline-offset: 2px; 
+  outline: 0.25rem solid var(--focus-color-inverted);
+}
+
+.dm-collist-text {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  max-height: calc(calc(1em + 0.5rem) * 7);
+  overflow: clip;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#dm-collist-table .dm-collist-text {
+  min-height: var(--collist-item-height);
+}
+
+.dm-collist-row:nth-of-type(odd) {
+  background-color: color-mix(in srgb, var(--collist-item-color) 75%, white);
+}
+
+/* Reference Library List */
+
+#dm-references-wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+
+.dm-reflist-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.dm-reflist-table .dm-table-caption-wrapper {
+  padding: 0.5em;
+}
+
+.dm-reflist-table h2,
+.dm-reflist-table h3 {
+  color: var(--focus-color-inverted);
+}
+
+.dm-reflist-table .dm-collist-item:nth-of-type(2) {
+  font-weight: bold;
+}
+
+.dm-reflist-table .dm-collist-item:not(th):not(:nth-of-type(3)) .dm-collist-text {
+  min-height: 7rem;
+}
+
+#dm-references .dm-collist-item:nth-of-type(3),
+#dm-reflinks .dm-collist-item:nth-of-type(3) {
+  text-align: left;
+}
+
+#dm-references .dm-collist-item:nth-of-type(3) .dm-collist-text,
+#dm-reflinks .dm-collist-item:nth-of-type(3) .dm-collist-text {
+  display: block;
+}
+
+.dm-btn-ref-open {
+  min-width: 6rem;
+}
+
+.dm-reflist-action {
+  font-weight: bold;
+  color: var(--focus-color-inverted);
+  transition: color 0.33s ease-in-out;
+}
+
+.dm-reflist-table .dm-collist-item a {
+  color: white;
+  font-weight: bold;
+}
+
+.dm-reflist-table .dm-collist-item a:is(:active, :hover, :focus, :focus-visible) {
+  color: var(--secondary-color-b);
+}
+
+.dm-reflist-table .link-wrapper-block a:focus-visible {
+  outline: none;
+}
+
+#dm-references .dm-collist-text:hover .dm-reflist-action,
+.link-wrapper-block:is(:hover, :focus-within) .dm-reflist-action {
+  color: white;
+}
+
+/* Status Bar styles */
+
+.dm-status-bar {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  height: 1px; 
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Dialog animations */
+
+.dm-modal-list:not(#dm-modal-list-tunes) {
+  &[open] {
+
+    @starting-style {
+      opacity: 0;
+    }
+    
+  /* :popover-open */
+    opacity: 1;
+  }
+  
+  /* popover out */
+  opacity: 0;
+
+  transition: 
+  opacity 0.2s, 
+  display 0.2s allow-discrete;
+}
+
+/* Media queries for dialogs */
+
+/* @media screen and (max-width: 968px) { */
+@media screen and (max-width: 60.5em) {
+
+  .dm-modal-list-header-container {
+    justify-content: center;
+  }
+}
+
+/* @media screen and (max-width: 720x) { */
+@media screen and (max-width: 45em) {
+
+  .dm-collist-item {
+    display: block;
+    border: none;
+  }
+
+  .dm-list-table-header {
+    display: none;
+  }
+
+  .dm-list-table-caption h2 {
+    font-size: var(--font-mid);
+  }
+
+  .dm-collist-row:nth-of-type(even) {
+    background-color: color-mix(in srgb, var(--collist-item-color) 75%, white);
+  }
+
+  .dm-collist-row:nth-of-type(odd) {
+    background-color: var(--collist-item-color);
+  }
+
+  #dm-collist-table .dm-collist-text {
+    min-height: 0;
+  }
+
+  #dm-collist-table .dm-collist-item:nth-child(1)::before {
+    content: "Collection Ref.: \A\A";
+    white-space: pre;
+  }
+
+  #dm-collist-table .dm-collist-item:nth-child(2)::before {
+    content: "Collection Name:\A\A";
+    white-space: pre;
+  }
+
+  #dm-collist-table .dm-collist-item:nth-child(3)::before {
+    content: "Collection Details:\A\A";
+    white-space: pre;
+  }
+
+  .dm-reflist-table .dm-collist-row .dm-collist-item {
+    width: 100%;
+  }
+
+  .dm-reflist-table .dm-collist-item:not(th):not(:nth-of-type(3)) .dm-collist-text {
+    min-height: 0rem;
+  }
+
+  .dm-reflist-table .dm-collist-item:nth-child(3) {
+    text-align: center;
+  }
+
+  .dm-reflist-table .dm-collist-item:nth-child(1)::before {
+    content: "";
+  }
+
+  .dm-reflist-table .dm-collist-item:nth-child(2)::before {
+    content: "Ref. Name:\A\A";
+    white-space: pre;
+  }
+
+  .dm-reflist-table .dm-collist-item:nth-child(3)::before {
+    content: "Ref. Details:\A\A";
+    white-space: pre;
+  }
+}
+
+/* @media screen and (max-width: 668px) { */
+  @media screen and (max-width: 41.75em) {
+
+  .dm-modal-list-header-container {
+    flex-flow: column;
+    align-items: center;
+  }
+}
+
+/* @media screen and (max-width: 408px) { */
+@media screen and (max-width: 25.5em), (max-height: 25.5em) {
+
+  .dm-tunelist-container {
+    scrollbar-gutter: unset;
+  }
+
+  .dm-modal-list {
+    min-height: 100svh;
+    min-width: 100svw;
+  }
+  
+  .dm-collist-container {
+    padding: 0.5em;
+  }
+}
+
+/* @media screen and (max-width: 320px) { */
+@media screen and (max-width: 20em), (max-height: 20em) {
+
+  .dm-modal-list {
+    min-height: 100svh;
+    min-width: 100svw;
+  }
+
+  .dm-modal-list-header-container {
+    padding: 0.75em;
+  }
+
+  .dm-tunelist-container {
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+    justify-content: flex-start;
+    padding: 0.5em;
+  }
+
+  .dm-tunelist-item-wrapper {
+    padding: 0.09em;
+  }
+
+  .dm-modal-list-header-container > .btn {
+    padding: 0.35rem;
+  }
+
+  .dm-tunelist-item {
+    container-type: inline-size;
+  }
+}

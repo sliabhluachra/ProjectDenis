@@ -1,0 +1,1065 @@
+/* #ProjectDenis: Popover Styles */
+
+body {
+  --tune-card-color: var(--secondary-color-b);
+  --col-card-color: var(--secondary-color-c);
+  --track-card-color: var(--secondary-color-a);
+  --tune-card-item-color: color-mix(in srgb, var(--accent-color-b) 51%, black);
+  --tune-card-item-active-color: color-mix(in srgb, var(--accent-color-c) 75%, black);
+  --tune-card-item-outline-color: green;
+  --tune-card-item-close-color: red;
+  --tune-card-item-hover-color: transparent;
+  --tune-card-item-bg-color: transparent;
+  --ref-card-btn-width: 12rem;
+  --ref-card-color: var(--accent-color-b);
+  --ref-card-outline-color: var(--secondary-color-b);
+  --nav-card-color: var(--primary-color-alt);
+  --nav-card-links-color: var(--focus-color);
+  --nav-card-focus-color: var(--focus-color-inverted);
+}
+
+/* Popover Common Styles */
+
+.dm-popover-card {
+  padding: 0.75em 0 1em;
+  width: min(calc(100svw - 3.7rem), 40rem);
+  max-height: calc(100svh - 3.7rem);
+  border-radius: 0.5rem;
+}
+
+.dm-popover-card * {
+  line-height: 1.5;
+}
+
+.dm-popover-card-header {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+  color: black;
+  border-bottom: 2px dashed black;
+  padding: 0 1em 1em;
+}
+
+.dm-popover-card-header h2, .dm-popover-card-header h3  {
+  color: black;
+  margin: 0;
+}
+
+.dm-tune-grid-body, .dm-col-grid-body, .dm-track-grid-body {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1em;
+}
+
+.dm-tune-grid-body p,
+.dm-col-grid-body p,
+.dm-track-grid-body p {
+  margin-bottom: 0.33rem;
+}
+
+.dm-tune-grid-item, .dm-col-grid-item, .dm-track-grid-item {
+  text-align: center;
+  text-align-last: center;
+}
+
+.dm-tune-grid-item, 
+.dm-col-grid-item:not(:last-child):not(>.dm-col-grid-nav),
+.dm-track-grid-item {
+  padding-bottom: 0.5rem;
+}
+
+.dm-tune-grid-item,
+.dm-col-grid-item,
+.dm-track-grid-item {
+  font-size: var(--font-base);
+  color: black;
+}
+
+.col-grid-comments-cont,
+.track-grid-notes-cont {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.dm-col-grid-notes, 
+.dm-track-grid-notes {
+  text-align: justify;
+  text-align-last: left;
+  text-indent: 1.3rem;
+}
+
+/* Popover Nav Sections Common Styles */
+
+.dm-tune-grid-nav,
+.dm-col-grid-nav,
+.dm-track-grid-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dm-col-grid-links > *,
+.dm-track-grid-source > * {
+  display: grid;
+  gap: 1rem;
+}
+
+.dm-tune-grid-footer, 
+.dm-col-grid-footer,
+.dm-track-grid-footer,
+.dm-help-nav-footer {
+  display: flex;
+  padding: 0 1em;
+}
+
+.dm-tune-nav-mobile {
+  display: none;
+  padding: 0;
+}
+
+.dm-tune-grid-footer, 
+.dm-tune-nav-mobile,
+.dm-col-grid-footer,
+.dm-track-grid-footer,
+.dm-help-nav-footer {
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.col-grid-reflink,
+.track-grid-reflink {
+  display: flex;
+  min-width: 56%;
+}
+
+.dm-btn-tune-card-nav,
+.dm-btn-help-card-nav,
+.dm-btn-card-popover-close,
+.dm-btn-card-dialog-close {
+  text-align: center;
+  font-size: var(--font-button);
+  padding: 0.25rem;
+  background-color: transparent;
+}
+
+.dm-track-grid-source,
+.dm-col-grid-links {
+  border-radius: 0.5rem;
+  margin: 0.17rem 0 0.5rem;
+}
+
+.dm-btn-card-nav,
+.dm-btn-help-card-nav,
+.dm-col-grid-nav .dm-btn-open-track,
+.dm-track-grid-nav .dm-btn-open-track {
+  flex-grow: 1;
+}
+
+/* Popover Buttons Common Styles */
+
+.dm-tune-grid-item a,
+.dm-col-grid-item a,
+.dm-track-grid-item a,
+.dm-col-grid-nav button,
+.dm-track-grid-nav button,
+.dm-col-grid-nav .dm-btn-open-track,
+.dm-track-grid-nav .dm-btn-open-track,
+.tune-grid-refno-cont .dm-btn-open-track,
+.dm-track-grid-source .dm-btn-open-track {
+  font-weight: bold;
+}
+
+.dm-btn-popover-close-x {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  aspect-ratio: 1/1;
+  margin: 0.24rem;
+  padding: 0.5rem;
+  line-height: 0;
+}
+
+.dm-btn-popover-close-x:after {
+  content: "\00d7";
+  font-size: var(--font-xlarge);
+  padding-bottom: 0.35rem;
+}
+
+.dm-btn-popover-close,
+.dm-btn-card-popover-close,
+.dm-btn-card-dialog-close, 
+.dm-btn-tune-card-nav,
+.dm-btn-help-card-nav {
+  opacity: 0.75;
+  transition: opacity 0.35s ease-in-out;
+}
+
+.dm-btn-card-dialog-close,
+.dm-btn-popover-close-x {
+  transition: 
+  outline-color 0.2s ease-in-out,
+  opacity 0.35s ease-in-out;
+}
+
+.dm-btn-open-track,
+.dm-col-grid-item a, 
+.dm-track-grid-item a,
+.dm-col-grid-nav button,
+.dm-track-grid-nav button {
+  transition: 
+  outline-color 0.35s ease-in-out,
+  color 0.35s ease-in-out;
+}
+
+.dm-col-grid-item a, 
+.dm-track-grid-item a,
+.dm-col-grid-nav button,
+.dm-track-grid-nav button,
+.dm-track-grid-source button {
+  color: var(--secondary-color-b);
+  text-shadow: 1px 1px 1px #111111;
+}
+
+.dm-col-grid-links,
+.dm-track-grid-source,
+.dm-col-grid-nav button,
+.dm-track-grid-nav button {
+  border: 2px dashed black;
+  padding: 1em;
+  gap: 1rem;
+}
+
+.dm-col-grid-nav button,
+.dm-track-grid-nav button {
+  outline: 0.25rem solid transparent;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.dm-btn-prev-col:before,
+.dm-btn-prev-tune:before,
+.dm-btn-prev-track:before,
+.dm-btn-help-prev::before {
+  content: "◀\FE0E";
+}
+
+.dm-btn-next-tune:before,
+.dm-btn-next-col:before,
+.dm-btn-next-track:before,
+.dm-btn-help-next::before {
+  content: "▶\FE0E";
+}
+
+.dm-track-grid-footer .dm-btn-card-popover-close:before {
+  content: "Close";
+}
+
+.dm-col-grid-footer .dm-btn-card-popover-close:before {
+  content: "Close Card";
+}
+
+.dm-btn-card-dialog-close:before {
+  content: "Quit to Main";
+}
+
+/* Popover Outlines Common Styles */
+
+.dm-popover-card-header h2:is(:focus, :focus-visible) {
+  outline: 0.2rem solid var(--tune-card-item-outline-color);
+}
+
+.dm-btn-tune-card-nav,
+.dm-btn-help-card-nav {
+  outline: 1px dotted black;
+}
+
+.dm-btn-card-popover-close,
+.dm-btn-card-dialog-close,
+.dm-btn-help-skip {
+  outline: 1px dashed black;
+}
+
+.dm-popover-card-header h2,
+.dm-tune-grid-item a,
+.dm-btn-popover-close,
+.dm-btn-tune-card-nav,
+.dm-btn-help-card-nav,
+.dm-btn-card-popover-close,
+.dm-btn-card-dialog-close, 
+.dm-tune-card .dm-btn-open-track,
+.dm-col-grid-item a,
+.dm-track-grid-item a,
+.dm-col-grid-nav button,
+.dm-track-grid-nav button,
+.dm-track-grid-source,
+.dm-track-grid-source .dm-btn-open-track  {
+  border-radius: 0.33rem;
+}
+
+.dm-col-grid-item a:is(:hover, :focus, :focus-visible),
+.dm-track-grid-item a:is(:hover, :focus, :focus-visible),
+.dm-col-grid-nav button:is(:hover, :focus-visible),
+.dm-track-grid-nav button:is(:hover, :focus-visible),
+.dm-col-grid-item button:is(:hover, :focus-visible),
+.dm-track-grid-item button:is(:hover, :focus-visible) {
+  color: var(--accent-color-a);
+}
+
+.dm-col-grid-nav button:is(:hover, :focus-visible),
+.dm-track-grid-nav button:is(:hover, :focus-visible) {
+  outline: 0.25rem solid yellow;
+}
+
+.dm-col-grid-item a:is(:focus, :focus-visible),
+.dm-track-grid-item a:is(:focus, :focus-visible),
+.dm-track-grid-item button:is(:focus, :focus-visible),
+.dm-track-grid-source .dm-btn-open-track :is(:focus, :focus-visible) {
+  outline: 0.2rem solid yellow;
+}
+
+.dm-col-grid-nav button:is(:hover, :focus-visible),
+.dm-track-grid-nav button:is(:hover, :focus-visible) {
+  outline-offset: 0.05rem;
+}
+
+.dm-col-grid-item a,
+.dm-track-grid-item a,
+.dm-track-grid-source .dm-btn-open-track {
+  outline-offset: 0.25rem;
+}
+
+.dm-tune-grid-item a:is(:active, :hover, :focus, :focus-visible),
+.dm-track-grid-item a:is(:active, :hover, :focus, :focus-visible),
+.dm-col-grid-item a:is(:active, :hover, :focus, :focus-visible),
+.dm-track-grid-item a:is(:active, :hover, :focus, :focus-visible),
+.dm-tune-grid-item .dm-btn-open-track:is(:active, :hover, :focus, :focus-visible),
+.dm-track-grid-source .dm-btn-open-track:is(:active, :hover, :focus, :focus-visible) {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-skip-ink: all;
+}
+
+/* Tune Popover Card */
+
+.dm-tune-card {
+  background-color: var(--tune-card-color);
+  outline: 2px dashed var(--secondary-color-c);
+}
+
+.dm-tune-card:focus-visible {
+  outline: 0.25rem solid var(--secondary-color-c);
+}
+
+.dm-tune-grid-body {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "alttitle-header alttitle-header"
+    "alttitle-content alttitle-content"
+    "refno-header transcr-header"
+    "refno-content transcr-content"
+    "tunereffull-header refsetting-header"
+    "tunereffull-content refsetting-content";
+}
+
+.dm-tune-grid-body p {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.dm-tune-grid-footer, 
+.dm-tune-nav-mobile,
+.dm-help-nav-footer {
+  padding-top: 0.5em;
+}
+
+.tune-grid-alttitle-head {
+  grid-area: alttitle-header;
+}
+
+.tune-grid-alttitle-cont {
+  grid-area: alttitle-content;
+}
+
+.tune-grid-refno-head {
+  grid-area: refno-header;
+}
+
+.tune-grid-refno-cont {
+  grid-area: refno-content;
+}
+
+.tune-grid-transcr-head {
+  grid-area: transcr-header;
+}
+
+.tune-grid-transcr-cont {
+  grid-area: transcr-content;
+}
+ 
+.tune-grid-refsetting-head {
+  grid-area: refsetting-header;
+}
+ 
+.tune-grid-refsetting-cont {
+  grid-area: refsetting-content;
+}
+
+.tune-grid-tunereffull-head {
+  grid-area: tunereffull-header;
+}
+
+.tune-grid-tunereffull-cont {
+  grid-area: tunereffull-content;
+}
+
+/* Tune Popover Buttons */
+
+.dm-tune-card .dm-btn-open-track,
+.dm-tune-card .dm-tune-grid-item a {
+  color: var(--tune-card-item-color);
+  background-color: var(--tune-card-item-bg-color);
+}
+
+.dm-tune-card .dm-btn-open-track:is(:active, :hover, :focus, :focus-visible),
+.dm-tune-card .dm-tune-grid-item a:is(:active, :hover, :focus, :focus-visible) {
+  color: var(--tune-card-item-active-color);
+}
+
+.dm-tune-grid-item a,
+.dm-tune-card .dm-btn-open-track {
+  transition: 
+  opacity 0.2s ease-in-out,
+  outline 0.2s ease-in-out;
+}
+
+.dm-tune-grid-item a,
+.dm-btn-popover-close-x,
+.dm-tune-card .dm-btn-open-track {
+  outline: 0.16rem solid transparent;
+}
+
+.dm-tune-grid-item a:hover,
+.dm-tune-card .dm-btn-open-track:hover {
+  outline: 2px solid var(--tune-card-item-hover-color);
+}
+
+.dm-tune-grid-item a:is(:focus-visible),
+.dm-btn-tune-card-nav:is(:hover, :focus-visible),
+.dm-btn-help-card-nav:is(:hover, :focus-visible),
+.dm-btn-popover-close:is(:hover, :focus-visible),
+.dm-tune-card .dm-btn-open-track:is(:focus, :focus-visible) {
+  outline: 0.16rem solid var(--tune-card-item-outline-color);
+  opacity: 1;
+}
+
+.dm-btn-popover-close:is(:hover, :focus-visible),
+.dm-btn-help-skip:is(:hover, :focus-visible) {
+  outline: 0.16rem solid var(--tune-card-item-close-color);
+}
+
+.dm-tune-card .dm-btn-open-track {
+  padding: 0.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.dm-tune-card .dm-tune-grid-item a {
+  padding: 0.5rem;
+}
+
+/* Collection Popover Card */
+
+.dm-col-card {
+  background-color: color-mix(in srgb, var(--col-card-color) 65%, white);
+  outline: 2px dashed var(--secondary-color-b);
+}
+
+.dm-col-card:is(:focus, :focus-visible, :focus-within) {
+  outline: 0.25rem solid var(--secondary-color-c);
+}
+
+.dm-col-grid-body {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "performers-header performers-header performers-header"
+    "performers-content performers-content performers-content"
+    "source-header source-header source-header"
+    "source-content source-content source-content"
+    "col-links col-links col-links"
+    "coltype-header yearrec-header yearpub-header"
+    "coltype-content yearrec-content yearpub-content"
+    "comments-header comments-header comments-header"
+    "comments-content comments-content comments-content";
+}
+
+.dm-col-grid-item-inactive {
+  color: var(--neutral-color-inactive);
+  font-weight: bold;
+}
+
+.col-grid-performers-head {
+  grid-area: performers-header;
+}
+
+.col-grid-performers-cont {
+  grid-area: performers-content;
+}
+
+.col-grid-source-head {
+  grid-area: source-header;
+}
+
+.col-grid-source-cont {
+  grid-area: source-content;
+}
+
+.col-grid-pubcode-head {
+  grid-area: pubcode-header;
+}
+
+.col-grid-pubcode-cont {
+  grid-area: pubcode-content;
+}
+
+.col-grid-yearrec-head {
+  grid-area: yearrec-header;
+}
+
+.col-grid-yearrec-cont {
+  grid-area: yearrec-content;
+}
+
+.col-grid-yearpub-head {
+  grid-area: yearpub-header;
+}
+
+.col-grid-yearpub-cont {
+  grid-area: yearpub-content;
+}
+
+.col-grid-coltype-head {
+  grid-area: coltype-header;
+}
+
+.col-grid-coltype-cont {
+  grid-area: coltype-content;
+}
+
+.col-grid-srclink {
+  grid-area: srclink;
+}
+
+.col-grid-dsglink {
+  grid-area: dgslink;
+}
+
+.col-grid-tsolink {
+  grid-area: tsolink;
+}
+
+.col-grid-itilink {
+  grid-area: itilink;
+}
+
+.col-grid-rmtlink {
+  grid-area: rmtlink;
+}
+
+.col-grid-strlink {
+  grid-area: strlink;
+}
+
+.dm-col-grid-links {
+  grid-area: col-links;
+}
+
+.col-grid-comments-head {
+  grid-area: comments-header;
+}
+
+.dm-col-grid-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "srclink dgslink tsolink"
+    "itilink rmtlink strlink";
+}
+
+.col-grid-comments-cont {
+  grid-area: comments-content;
+}
+
+/* Collections Popover Buttons */
+
+.dm-col-grid-links,
+.dm-col-grid-nav .dm-btn-card-nav,
+.dm-col-grid-nav .dm-btn-open-track {
+  background-color: color-mix(in srgb, var(--col-card-color) 65%, black);
+}
+
+.dm-col-grid-nav .dm-btn-open-track:before {
+  content: "Show in Tracklist";
+}
+
+/* Track Popover */
+
+.dm-track-card {
+  background-color: color-mix(in srgb, var(--track-card-color) 33%, white);
+  outline: 2px dashed var(--secondary-color-a);
+}
+
+.dm-track-card:is(:focus, :focus-visible, :focus-within) {
+  outline: 0.25rem solid var(--secondary-color-a);
+}
+
+.dm-track-grid-body {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "t-performers-header t-performers-header t-performers-header"
+    "t-performers-content t-performers-content t-performers-content"
+    "t-track-source t-track-source t-track-source"
+    "t-alttitle-header t-alttitle-header t-alttitle-header"
+    "t-alttitle-content t-alttitle-content t-alttitle-content"
+    "t-category-header t-yearrec-header t-yearpub-header"
+    "t-category-content t-yearrec-content t-yearpub-content"
+    "t-notes-header t-notes-header t-notes-header"
+    "t-notes-content t-notes-content t-notes-content"
+}
+
+.track-grid-performers-head {
+  grid-area: t-performers-header;
+}
+
+.track-grid-performers-cont {
+  grid-area: t-performers-content;
+}
+
+.dm-track-grid-source {
+  grid-area: t-track-source;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+  "t-colno-header t-coltrack-header t-transcription-header"
+  "t-colno-content t-coltrack-content t-transcription-content";
+}
+
+.dm-track-grid-source h4,
+.dm-track-grid-source p {
+    color: var(--secondary-color-b);
+    opacity: 0.9;
+    text-shadow: 1px 1px 1px #111111;
+}
+
+.track-grid-colno-head {
+  grid-area: t-colno-header;
+}
+
+.track-grid-colno-cont {
+  grid-area: t-colno-content;
+}
+
+.track-grid-coltrackno-head {
+  grid-area: t-coltrack-header;
+}
+
+.track-grid-coltrackno-cont {
+  grid-area: t-coltrack-content;
+}
+
+.track-grid-transcr-head {
+  grid-area: t-transcription-header;
+}
+
+.track-grid-transcr-cont {
+  grid-area: t-transcription-content;
+}
+
+.track-grid-category-head {
+  grid-area: t-category-header;
+}
+
+.track-grid-category-cont {
+  grid-area: t-category-content;
+}
+
+.track-grid-yearrec-head {
+  grid-area: t-yearrec-header;
+}
+
+.track-grid-yearrec-cont {
+  grid-area: t-yearrec-content;
+}
+
+.track-grid-yearpub-head {
+  grid-area: t-yearpub-header;
+}
+
+.track-grid-yearpub-cont {
+  grid-area: t-yearpub-content;
+}
+
+.track-grid-alttitle-head {
+  grid-area: t-alttitle-header;
+}
+
+.track-grid-alttitle-cont {
+  grid-area: t-alttitle-content;
+}
+
+.track-grid-notes-head {
+  grid-area: t-notes-header;
+}
+
+.track-grid-notes-cont {
+  grid-area: t-notes-content;
+}
+
+/* Track Popover Buttons */
+
+.dm-track-grid-nav button,
+.dm-track-grid-source {
+  background-color: color-mix(in srgb, var(--track-card-color) 65%, black);
+}
+
+.dm-track-grid-item a,
+.dm-track-grid-source .dm-btn-open-track {
+  text-shadow: 1px 1px 2px #111111;
+}
+
+.dm-track-grid-nav .dm-btn-open-track:before {
+  content: "Show Tune";
+}
+
+/* Reference Links Popover Card */
+
+.dm-ref-card {
+  min-height: 18rem;
+  background-color: color-mix(in srgb, var(--ref-card-color) 75%, white);
+  background-color: color-mix(in srgb, var(--collist-item-color) 80%, black);
+  outline: 2px dashed var(--ref-card-outline-color);
+  padding-bottom: 0;
+}
+
+.dm-ref-grid-header {
+  min-height: 4rem;
+  border-bottom: 2px dashed var(--ref-card-outline-color);
+}
+
+.dm-ref-grid-header h2,
+.dm-ref-grid-header h3,
+.dm-ref-card .dm-btn-popover-close-x {
+  color: var(--ref-card-outline-color);
+  text-shadow: 1px 1px 2px black;
+}
+
+.dm-ref-card .dm-btn-popover-close-x {
+  opacity: 0.9;
+}
+
+.dm-ref-grid-body {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(var(--ref-card-btn-width), 1fr));
+}
+
+/* Color Theme Popover Card */
+
+#theme-picker-popover:popover-open {
+  display: flex;
+}
+
+#theme-picker-popover {
+  position: fixed;
+  top: 0;
+  left: 0.9rem;
+  flex-flow: row-reverse;
+  justify-content: space-between;
+  width: calc(100% - 1.8rem);
+  gap: 1rem;
+  padding: 0.5em 1em;
+  margin: 0;
+  background-color: var(--primary-color);
+  border: 2px solid var(--focus-color-inverted);
+  border-radius: 0.75rem;
+}
+
+/* Navigation Popover Card */
+
+.dm-nav-card {
+  position: fixed;
+  inset: unset;
+  bottom: 0;
+  right: 0;
+  bottom: 13%;
+  padding: 1.5em 1em;
+  border-radius: 0.8rem;
+  border-style: dashed;
+  color: var(--nav-card-links-color);
+  background-color: var(--nav-card-color);
+  width: min(14rem, calc(100% - 1.8rem));
+  z-index: 3;
+}
+
+.dm-nav-card-header {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dm-nav-card-header .dm-nav-link-top {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.35s ease-in-out;
+  border-radius: 100%;
+  outline-offset: 1rem;
+}
+
+.dm-nav-card-header .dm-nav-link-top:focus-within {
+  box-shadow: 0px 0px 0px 0.1875rem var(--nav-card-focus-color);
+}
+
+.dm-nav-card .dm-nav-card-header a:focus-visible {
+  outline: none;
+}
+
+.dm-nav-card-body {
+  text-align: left;
+  text-align: center;
+}
+
+.dm-nav-card a {
+  font-size: var(--font-large);
+  color: var(--nav-card-links-color);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transform: text-decoration 0.33s ease-in-out;
+}
+
+.dm-nav-card .link-wrapper a {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  outline-offset: -0.1rem;
+}
+
+.dm-nav-card .link-wrapper a:is(:hover, :focus) {
+  box-shadow: none;  
+}
+
+.dm-nav-card .link-wrapper a:focus-visible {
+  box-shadow: 0px 0px 0px 3px var(--nav-card-focus-color);  
+  outline: none;
+}
+
+.dm-nav-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Popover animations */
+
+.dm-nav-card {
+  &:popover-open {
+
+    @starting-style {
+      transform: translateY(150%);
+      opacity: 0;
+    }
+    
+  /* :popover-open */
+    transform: translateY(0);
+    opacity: 1;
+    transition: 
+    transform 0.5s cubic-bezier(0.23, 1, 0.320, 1), 
+    opacity 0.2s cubic-bezier(0.23, 1, 0.320, 1), 
+    display 0.5s cubic-bezier(0.23, 1, 0.320, 1) allow-discrete;
+  }
+  
+  /* popover out */
+  transform: translateY(150%);
+  opacity: 0;
+
+  transition: 
+  transform 0.5s cubic-bezier(0.215, 0.610, 0.355, 1), 
+  opacity 0.75s cubic-bezier(0.23, 1, 0.320, 1), 
+  display 0.5s cubic-bezier(0.23, 1, 0.320, 1) allow-discrete;
+}
+
+.dm-popover-card:not(.dm-help-card) {
+  &:popover-open {
+
+    @starting-style {
+      opacity: 0;
+    }
+    
+  /* :popover-open */
+    opacity: 1;
+  }
+  
+  /* popover out */
+  opacity: 0;
+
+  transition: 
+  opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), 
+  display 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) allow-discrete;
+}
+
+#theme-picker-popover {
+  &:popover-open {
+
+    @starting-style {
+      transform: translateY(-100%);
+    }
+    
+  /* :popover-open */
+  transform: translateY(0);
+  }
+  
+  /* popover out */
+  transform: translateY(-100%);
+
+  transition: 
+  opacity 0.25s ease-out, 
+  transform 0.5s ease-out, 
+  display 0.5s ease-out allow-discrete;
+}
+
+/* Media queries for popovers */
+
+/* @media screen and (max-width: 668px), (max-height: 668px) { */
+@media screen and (max-width: 41.75em), (max-height: 41.75em) {
+
+  .dm-nav-card,
+  .dm-popover-card:not(.dm-help-card) {
+    position: fixed;
+    inset: unset;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: -47%;
+  }
+
+  .dm-popover-card:not(.dm-help-card) {
+    padding-bottom: 0;
+    width: min(calc(100svw - 1.2rem));
+    max-height: calc(100svh - 1.4rem);
+  }
+
+  .dm-track-card {
+    bottom: -49%;
+  }
+
+  .dm-tune-grid-footer,
+  .dm-col-grid-footer, 
+  .dm-track-grid-footer {
+    padding-bottom: 1em;
+  }
+
+  #theme-picker-popover {
+    left: 0;
+    width: 100%;
+  }
+
+  .dm-nav-card {
+    &:popover-open {
+  
+      @starting-style {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+      }
+      
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+    
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+}
+
+/* @media screen and (max-height: 668px) { */
+@media screen and (max-height: 41.75em) {
+
+  .dm-tune-grid-footer {
+    display: none;
+  }
+
+  .dm-tune-nav-mobile {
+    display: flex;
+  }
+}
+
+/* @media screen and (max-width: 544px) { */
+@media screen and (max-width: 34em) {
+
+  .dm-tune-grid-body, .dm-ref-grid-body, .dm-ref-link-wrapper a, 
+  .dm-col-grid-body, .dm-col-grid-links,
+  .dm-track-grid-body, .dm-track-grid-source {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .dm-col-grid-nav, 
+  .dm-track-grid-nav {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.33rem;
+    padding: 0.8em;
+    margin-bottom: 0.25rem;
+  }
+
+  .dm-col-grid-nav button,
+  .dm-track-grid-nav button {
+    margin: 0;
+  }
+
+  .col-grid-reflink,
+  .track-grid-reflink {
+    width: 100%;
+  }
+
+  .dm-btn-prev-col:not([hidden]),
+  .dm-btn-prev-track:not([hidden]) {
+    display: none;
+  }
+
+  .dm-btn-prev-col[hidden],
+  .dm-btn-prev-track[hidden] {
+    display: block;
+  }
+}
+
+/* @media screen and (max-width: 320px) { */
+@media screen and (max-width: 20em) {
+
+  .dm-tune-grid-body {
+    display: flex;
+    flex-flow: column;
+  }
+
+  h4, 
+  .dm-tune-grid-item, 
+  .dm-col-grid-item, 
+  .dm-track-grid-item, 
+  .dm-btn-card-popover-close,
+  .dm-btn-card-dialog-close {
+    font-size: var(--font-button);
+  }
+
+  .dm-popover-card-header h2,
+  .dm-ref-link-wrapper a {
+    font-size: 7cqi;
+  }
+}

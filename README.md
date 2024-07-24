@@ -4,14 +4,16 @@
 
 Join fiddle player Anton Zille and other Friends of Sliabh Luachra in a quest to uncover hidden gems in archival, historical and other previously unexplored recordings of Denis Murphy. Use this app to guide you to the tapes and tunes as they are being studied and organised from sources scattered across dozens of online and offline collections. Contribute to the volunteer project and the spreading of Denis Murphy's legacy by setting off on your own personal research journey or by simply learning some great tunes!
 
-Start Menu Sections:
+## App Overview
+
+### Start Menu Sections:
 
 Section Name | Description |
 | --- | --- |
 | **Start Exploring** | Get the latest #ProjectDenis database and launch the app by pressing this button |
 | **App Helper** | Little Denis Helper will offer to to begin a detailed Guide Help Tour of the app |
 
-Main Menu Sections:
+### Main Menu Sections:
 
 Section Name | Description |
 | --- | --- |
@@ -20,3 +22,16 @@ Section Name | Description |
 | **#Discover** | Discover sources & tools used in #ProjectDenis tune research and identification process |
 
 NB: This is the Client version of the app. For Toolkit version with Tune DB tools and complete version history see [#ProjectDenis Toolkit](https://github.com/anton-bregolas/ProjectDenisToolkit).
+
+## Version History
+
+v.1.0.1
+
++ Progressive Web App.
++ Minor UI/UX tweaks.
+
+v.1.0.0
+
++ Initial commit as a separate Client version from #ProjectDenis Toolkit v.3.1
++ Modules included: App Launcher, App Helper, Modal Lists Generator, Popovers Generator, Tracklist Generator, Search Engine.
++ Tune DB version 2024-07-23.

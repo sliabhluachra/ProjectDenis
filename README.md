@@ -23,3 +23,19 @@ Section Name | Description |
 
 NB: This is the Stable Demo version of the app. For all the latest updates see [#ProjectDenis @anton-bregolas](https://github.com/anton-bregolas/ProjectDenis). 
 For Toolkit version with Tune DB tools and complete version history see [#ProjectDenis Toolkit](https://github.com/anton-bregolas/ProjectDenisToolkit).
+
+## Version History
+
+v.1.0.2
++ Popover card tweaks to improve mobile experience.
+
+v.1.0.1
+
++ Progressive Web App.
++ Minor UI/UX tweaks.
+
+v.1.0.0
+
++ Initial commit as a separate Client version from #ProjectDenis Toolkit v.3.1
++ Modules included: App Launcher, App Helper, Modal Lists Generator, Popovers Generator, Tracklist Generator, Search Engine.
++ Tune DB version 2024-07-23.

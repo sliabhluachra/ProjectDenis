@@ -1,6 +1,6 @@
 /* #ProjectDenis Popovers Scripts*/
 
-import { processString, searchInput } from '../dm-search/dm-search.js'
+import { processString } from '../dm-search/dm-search.js'
 import { tunelistDialog, colsListDialog, colsListDiv,
          generateTunelist, generateColsList, tunelistDiv, 
          showDialogsDiv, hideDialogsDiv } from '../dm-modals/dm-modals.js';
@@ -104,7 +104,7 @@ async function createTuneCard(tuneObject) {
 
     tuneRefDiv.textContent = tuneRef;
     tuneTitleDiv.textContent = `${generateTuneName(tuneName)} (${tuneType})`;
-    tuneAltTitleDiv.textContent = tuneAltNames;
+    tuneAltTitleDiv.textContent = tuneAltNames? tuneAltNames : "—";
     tuneTrackRefDiv.textContent = "";
     tuneTranscrDiv.textContent = "";
     tuneQuickRefDiv.textContent = "";
@@ -157,6 +157,10 @@ async function createTuneCard(tuneObject) {
           tuneTranscrDiv.append(tuneTranscriptHyperlink);
         }
       });
+
+    } else {
+
+      tuneTranscrDiv.textContent = "—";
     }
     
     const tuneQuickRefUrlArr = tuneQuickRefUrls === "" ? [] : tuneQuickRefUrls.split(", ");
@@ -184,7 +188,12 @@ async function createTuneCard(tuneObject) {
           tuneQuickRefDiv.append(tuneQuickRefHyperlink);
         }
       });
+
+    } else {
+
+      tuneQuickRefDiv.textContent = "—";
     }
+
   } catch (error) {
 
     throw new Error(error.message);
@@ -430,8 +439,8 @@ async function createColCard(colObject) {
     colSourceDiv.textContent = colPubCode? `${colSource}, ${colPubCode}` : colSource;
     colRefLinkDiv.textContent = "";
     colYearRecDiv.textContent = colYearRec? colYearRec : colYearRecEarliest? `~${colYearRecEarliest}–${colYearRecLatest}` : "Undated";
-    colYearPubDiv.textContent = colYearPub;
-    colTypeDiv.textContent = colType;
+    colYearPubDiv.textContent = colYearPub? colYearPub : "—";
+    colTypeDiv.textContent = colType? colType : "—";
     colCommentsDiv.textContent = "";
 
     const colNameArr = colName.split(/[:,]/);
@@ -623,10 +632,10 @@ async function createTrackCard(trackObject) {
     trackSourceColNoDiv.textContent = "";
     trackSourceTrackNoDiv.textContent = "";
     trackTranscrDiv.textContent = "";
-    trackCategoryDiv.textContent = trackCategory;
+    trackCategoryDiv.textContent = trackCategory? trackCategory : "—";
     trackYearRecDiv.textContent = trackYearRec? trackYearRec : trackYearRecEarliest? `~${trackYearRecEarliest}–${trackYearRecLatest}` : "Undated";
-    trackYearPubDiv.textContent = trackYearPub;
-    trackAltTitleDiv.textContent = trackTuneAltNames;
+    trackYearPubDiv.textContent = trackYearPub? trackYearPub : "—";
+    trackAltTitleDiv.textContent = trackTuneAltNames? trackTuneAltNames : "—";
     trackNotesDiv.textContent = "";
 
     trackCardPopover.setAttribute("data-refno", trackRefNo);

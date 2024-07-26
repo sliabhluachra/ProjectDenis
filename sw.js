@@ -35,8 +35,8 @@ self.addEventListener('activate', (event) => {
             .map((cacheName) => { 
                 console.log(`PD Service Worker:\n` +
                 `Clearing outdated cached files\n` +
-                `Cached version: ${cacheName.slice(16)}\n` +
-                `Current version: ${CACHE_NAME.slice(16)}`);
+                `Cached version: ${cacheName.slice(11)}\n` +
+                `Current version: ${CACHE_NAME.slice(11)}`);
                 caches.delete(cacheName);
             })
         );

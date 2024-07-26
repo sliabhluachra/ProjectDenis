@@ -25,6 +25,9 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 ## Version History
 
+v.1.0.2
++ Popover card tweaks to improve mobile experience.
+
 v.1.0.1
 
 + Progressive Web App.

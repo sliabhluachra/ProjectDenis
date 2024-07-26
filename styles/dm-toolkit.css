@@ -57,6 +57,10 @@ body, .header-main {
   padding-bottom: 2.5rem;
 }
 
+.dm-toolkit-header {
+  padding-top: 3.5rem;
+}
+
 .dm-section-anchor span {
   transition: opacity 0.35s ease-in-out;
 }

@@ -25,6 +25,9 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 ## Version History
 
+v.1.0.3
++ Tune DB updated to 2024-07-27
+
 v.1.0.2
 + Popover card tweaks to improve mobile experience.
 

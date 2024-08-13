@@ -25,6 +25,9 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 ## Version History
 
+v.1.0.5
++ Tune DB updated to 2024-08-13
+
 v.1.0.4
 + Tweaks to UI elements after tests in more browsers
 

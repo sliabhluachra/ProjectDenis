@@ -26,6 +26,9 @@ For Toolkit version with Tune DB tools and complete version history see [#Projec
 
 ## Version History
 
+v.1.0.7
++ Tune DB links updated to separate the test (Toolkit) DB version from live (Client) DB version.
+
 v.1.0.6
 + Added GoatCounter, a privacy-oriented analytics app, to check on basic visitor stats.
 

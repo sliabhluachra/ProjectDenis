@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////
-// #ProjectDenis App :: Client Edition :: v.1.0.6-beta
+// #ProjectDenis App :: Client Edition :: v.1.0.7-beta
 ///////////////////////////////////////////////////////////////////////
 
 import { appHelperHandler, helpCardPopover, showHelpPopover, 
@@ -12,11 +12,11 @@ import { setAriaLabel } from './aria-tools.js';
 
 // Tune Database links
 
-export const tunesJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenisToolkit/main/data/tunes.json";
-export const tracksJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenisToolkit/main/data/tracks.json";
-export const colsJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenisToolkit/main/data/collections.json";
-export const refsJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenisToolkit/main/data/references.json";
-export const helperJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenisToolkit/main/data/helper.json";
+export const tunesJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenis/main/data/tunes.json";
+export const tracksJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenis/main/data/tracks.json";
+export const colsJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenis/main/data/collections.json";
+export const refsJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenis/main/data/references.json";
+export const helperJsonLink = "https://raw.githubusercontent.com/anton-bregolas/ProjectDenis/main/data/helper.json";
 
 // Define App sections
 

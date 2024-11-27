@@ -827,6 +827,13 @@ body {
   content: "Show Featured Items";
 }
 
+.dm-btn-banner-featured:focus-visible {
+  color: var(--accent-color-a);
+  outline-offset: 0.15rem;
+  outline: 0.2rem solid var(--focus-color-inverted);
+  border-radius: 0.25rem;
+}
+
 /* Navigation Popover Card */
 
 .dm-nav-card {

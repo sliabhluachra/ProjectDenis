@@ -1,8 +1,22 @@
-#ProjectDenis Prototype v.1.0 (beta)
+#ProjectDenis v.1.1: ITMA Blog Edition
 ========================================================================================
 #ProjectDenis explores the repertoire of the Sliabh Luachra music legend, fiddle player Denis Murphy (1910–1974).
 
 Join fiddle player Anton Zille and other Friends of Sliabh Luachra in a quest to uncover hidden gems in archival, historical and other previously unexplored recordings of Denis Murphy. Use this app to guide you to the tapes and tunes as they are being studied and organised from sources scattered across dozens of online and offline collections. Contribute to the volunteer project and the spreading of Denis Murphy's legacy by setting off on your own personal research journey or by simply learning some great tunes!
+
+**November 2024 update:** 
+
+#ProjectDenis: ITMA Blog Edition has been released! Anton Zille's blog _Stories Told by Cards & Tapes: Uncovering Denis Murphy Materials at ITMA_ is a project done in cooperation with Irish Traditional Music Archive (ITMA). It features original research and some 40 previously unpublished recordings. The blog and the newly published materials can be accessed on ITMA's website:
+
+https://www.itma.ie/collections/denis-murphy/
+
+Use #ProjectDenis app to see the full extent of archival materials cited in the blog and explore a total of 10 Denis Murphy collections available for research at ITMA.
+
+**July 2024 update:**
+
+#ProjectDenis Prototype officially released!
+
+https://sliabhluachra.github.io/ProjectDenis/
 
 ## App Overview
 
@@ -25,6 +39,27 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 ## Version History
 
+v.1.1.0
+
+**ITMA Blog Edition**
+
++ Major Tune DB update with 8 new catalogued ITMA collections (10 in total).
++ Default colour scheme changed to The Paps of Anu.
++ Tracklist items now follow a unified naming standard: 
++ * Tune Title for tune names provided in source;
++ * [Tune Title] for tune names supplied by editor.
++ Keyboard shortcuts added:
++ * Alt + F1 = Launch Helper;
++ * Alt + F2 = Launch Navigation Menu;
++ * Alt + F3 = Focus on Search Input.
++ Minor improvements made to Search Engine.
++ Navigation Menu behaviour improved for keyboard users.
++ Help button launching Helper added to Navigation Menu.
++ Helper guided tour menu updated, keyboard navigation improved.
++ Notification banner shown first time new edition loads added to app.
++ Donation links added.
++ Tune DB updated to 2024-11-27.
+
 v.1.0.7
 + Tune DB links updated to separate the test (Toolkit) DB version from live (Client) DB version.
 
@@ -32,13 +67,13 @@ v.1.0.6
 + Added GoatCounter, a privacy-oriented analytics app, to check on basic visitor stats.
 
 v.1.0.5
-+ Tune DB updated to 2024-08-13
++ Tune DB updated to 2024-08-13.
 
 v.1.0.4
-+ Tweaks to UI elements after tests in more browsers
++ Tweaks to UI elements after tests in more browsers.
 
 v.1.0.3
-+ Tune DB updated to 2024-07-27
++ Tune DB updated to 2024-07-27.
 
 v.1.0.2
 + Popover card tweaks to improve mobile experience.

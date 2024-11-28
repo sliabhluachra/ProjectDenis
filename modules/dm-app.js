@@ -619,7 +619,7 @@ function handleNavShortcuts(event) {
 
     localStorage.setItem("user-app-edition", 1.1);
 
-    localStorage.removeItemItem("user-notification-seen");
+    localStorage.removeItem("user-notification-seen");
 
     console.log(`PD App:\n\nApp edition and color theme updated`);
   }

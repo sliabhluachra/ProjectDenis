@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pd-cache-v.1.1.0.5';
+const CACHE_NAME = 'pd-cache-v.1.1.1.0';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

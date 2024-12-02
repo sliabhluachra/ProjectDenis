@@ -39,6 +39,15 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 ## Version History
 
+v.1.1.1
+
+**ITMA Blog Edition Updates**
+
++ Custom line break marker added to account for song lyrics in track details.
++ Annotations added and fixed in BB collections.
++ Annotations added and fixed in HD35.
++ Tune DB updated to 2024-12-02.
+
 v.1.1.0
 
 **ITMA Blog Edition**

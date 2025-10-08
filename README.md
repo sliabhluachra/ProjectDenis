@@ -39,9 +39,20 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 ## Version History
 
-v.1.1.1
-
 **ITMA Blog Edition Updates**
+
+v.1.1.2
+
++ Fix links to Bill Black's ABCs & source naming logic in wake of BB website update
++ Add ITMA links to collections featured in 2024 Denis Murphy blog
++ Add underline styles to popover grid links for clarity
++ Fix Alt + F3 focus behavior, scrollIntoView is now instant
++ Update Tune DB to 2025-10-08
+
+<details>
+  <summary>Version History Archive</summary>
+
+v.1.1.1
 
 + Custom line break marker added to account for song lyrics in track details.
 + Annotations added and fixed in BB collections.
@@ -97,3 +108,4 @@ v.1.0.0
 + Initial commit as a separate Client version from #ProjectDenis Toolkit v.3.1
 + Modules included: App Launcher, App Helper, Modal Lists Generator, Popovers Generator, Tracklist Generator, Search Engine.
 + Tune DB version 2024-07-23.
+</details>

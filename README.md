@@ -42,6 +42,10 @@ For Toolkit version with Tune DB tools and complete version history see [#Projec
 
 **ITMA Blog Edition Updates**
 
+v.1.1.3
+ 
++ Update Tune DB to 2025-10-25 (Add ITI link for 1000)
+
 v.1.1.2
 
 + Fix links to Bill Black's ABCs & source naming logic in wake of BB website update

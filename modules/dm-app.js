@@ -583,7 +583,8 @@ function handleNavShortcuts(event) {
           break;
 
         case "F3":
-          searchInput.focus();
+          searchSection.scrollIntoView({ behavior: 'instant' });
+          setTimeout(() => { searchInput.focus(); }, 50);
           break;
       
         default:

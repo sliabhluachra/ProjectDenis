@@ -6,7 +6,7 @@
     <meta name="description" content="#ProjectDenis explores the repertoire of fiddle player Denis Murphy (1910–1974), the Irish music legend from Sliabh Luachra.">
     <title>Project Denis: ITMA Blog Edition</title>
     <link rel="icon" href="favicon.ico" sizes="48x48">
-    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="icon" href="favicon.svg?v=0" sizes="any" type="image/svg+xml">
     <link rel="stylesheet" href="styles/tools-common-styles.css">
     <link rel="stylesheet" href="styles/dm-toolkit.css">
     <link rel="stylesheet" href="components/dm-helper/dm-helper.css">
@@ -16,7 +16,10 @@
     <link rel="stylesheet" href="components/dm-search/dm-search.css">
     <link rel="stylesheet" href="styles/dm-themes-override.css">
     <script type="module" src="modules/dm-app.js"></script>
-    <script data-goatcounter="https://sliabhluachra.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://sliabhluachra.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"
+        onerror="console.warn('GoatCounter blocked or offline')">
+    </script>
     <link rel="manifest" href="app.webmanifest?v=1">
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=0">
     <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg?v=0" color="#000000">
@@ -29,8 +32,8 @@
 <body class="papsofanu">
     <header class="header-main">
         <nav class="header-container"> 
-            <button class="link-btn github-btn dm-btn-start-menu" title="#ProjectDenis Toolkit on GitHub" tabindex="-1">
-                <a href="https://github.com/anton-bregolas/ProjectDenisToolkit/" target="_blank" class="link-icon-container" ria-label="Link to Project Denis Toolkit on GitHub">
+            <button class="link-btn github-btn dm-btn-start-menu" title="#ProjectDenis on GitHub" tabindex="-1">
+                <a href="https://github.com/anton-bregolas/ProjectDenis" target="_blank" class="link-icon-container" ria-label="Link to Project Denis on GitHub">
                     <svg class="link-icon github-icon-dark" aria-hidden="true"><use href="assets/icons/icons.svg#nav-icon-github"></use></svg>
                 </a>
             </button>
@@ -427,16 +430,16 @@
                             <tbody id="dm-reflinks"></tbody>
                         </table>
                     </section>
-                <article id="dm-popover-card-reflinks" popover class="dm-ref-card dm-popover-card" aria-label="Reference Item Details">
-                    <header class="dm-ref-grid-header dm-popover-card-header">
-                        <button id="dm-btn-ref-card-close" class="dm-btn-popover-close dm-btn-popover-close-x dm-btn-card-nav" aria-label="Close Card and View List of References" title="Close Card and List of References"></button>
-                        <h3 class="ref-grid-hcode"></h3>
-                        <h2 class="ref-grid-htitle"></h2>
-                    </header>
-                    <div class="dm-ref-grid-body"></div>
-                </article>
-                <div class="dm-status-bar" aria-live="assertive"></div>
-                <dialog>
+                    <article id="dm-popover-card-reflinks" popover class="dm-ref-card dm-popover-card" aria-label="Reference Item Details">
+                        <header class="dm-ref-grid-header dm-popover-card-header">
+                            <button id="dm-btn-ref-card-close" class="dm-btn-popover-close dm-btn-popover-close-x dm-btn-card-nav" aria-label="Close Card and View List of References" title="Close Card and List of References"></button>
+                            <h3 class="ref-grid-hcode"></h3>
+                            <h2 class="ref-grid-htitle"></h2>
+                        </header>
+                        <div class="dm-ref-grid-body"></div>
+                    </article>
+                    <div class="dm-status-bar" aria-live="assertive"></div>
+                </dialog>
             </section>
         </div>
         <article id="dm-helper-main" class="dm-helper-container" inert>

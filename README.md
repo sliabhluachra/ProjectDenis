@@ -41,6 +41,10 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 **ITMA Blog Edition Updates**
 
+v.1.1.4
+
++ Update Tune DB to 2025-11-01 (Fix tracks, add link for 12000)
+
 v.1.1.3
  
 + Update Tune DB to 2025-10-25 (Add ITI link for 1000)

@@ -2,6 +2,7 @@
   "name": "#ProjectDenis",
   "short_name": "#ProjectDenis",
   "start_url": "index.html",
+  "id": "/index.html",
   "display": "standalone",
   "description": "#ProjectDenis explores the repertoire of fiddle player Denis Murphy (1910–1974), the Irish music legend from Sliabh Luachra",
   "lang": "en",
@@ -45,35 +46,95 @@
   ],
   "screenshots": [
     {
-      "src": "assets/screenshots/screenshot_star_main.png",
-      "sizes": "2842x1796",
-      "type": "image/png",
-      "description": "A screenshot of the main page with The Star above the Garter color theme on"
+      "src": "assets/screens/screenshot-paps-launch-tablet-1280.webp",
+      "sizes": "847x1280",
+      "type": "image/webp",
+      "description": "A screenshot of the tablet launch screen view with The Paps of Anu color theme on",
+      "form_factor": "narrow"
     },
     {
-      "src": "assets/screenshots/screenshot_star_tracklist.png",
-      "sizes": "2844x1798",
-      "type": "image/png",
-      "description": "A screenshot of the Tracklist with The Star above the Garter color theme on"
+      "src": "assets/screens/screenshot-paps-tracklist-tablet-1280.webp",
+      "sizes": "847x1280",
+      "type": "image/webp",
+      "description": "A screenshot of the tablet Tracklist view with The Paps of Anu color theme on",
+      "form_factor": "narrow"
     },
     {
-      "src": "assets/screenshots/screenshot_dark_main.png",
-      "sizes": "2846x1800",
-      "type": "image/png",
-      "description": "A screenshot of the main page with the Dark color theme on"
+      "src": "assets/screens/screenshot-paps-search-tablet-1280.webp",
+      "sizes": "847x1280",
+      "type": "image/webp",
+      "description": "A screenshot of the tablet Search view with The Paps of Anu color theme on",
+      "form_factor": "narrow"
     },
     {
-      "src": "assets/screenshots/screenshot_dark_tracklist.png",
-      "sizes": "2844x1798",
-      "type": "image/png",
-      "description": "A screenshot of the Tracklist with the Dark color theme on"
+      "src": "assets/screens/screenshot-paps-tunelist-tablet-1280.webp",
+      "sizes": "847x1280",
+      "type": "image/webp",
+      "description": "A screenshot of the mobile Tunelist view with The Paps of Anu color theme on",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/screens/screenshot-paps-collections-tablet-1280.webp",
+      "sizes": "847x1280",
+      "type": "image/webp",
+      "description": "A screenshot of the mobile Collections view with The Paps of Anu color theme on",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/screens/screenshot-paps-launch-mobile.webp",
+      "sizes": "792x1721",
+      "type": "image/webp",
+      "description": "A screenshot of the mobile launch screen view with The Paps of Anu color theme on",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/screens/screenshot-paps-search-mobile.webp",
+      "sizes": "792x1721",
+      "type": "image/webp",
+      "description": "A screenshot of the mobile Search view with The Paps of Anu color theme on",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/screens/screenshot-paps-tunelist-mobile.webp",
+      "sizes": "792x1721",
+      "type": "image/webp",
+      "description": "A screenshot of the mobile Tunelist view with The Paps of Anu color theme on",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/screens/screenshot-paps-launch-tablet.webp",
+      "sizes": "1296x1728",
+      "type": "image/webp",
+      "description": "A screenshot of the start page with The Paps of Anu color theme on",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/screens/screenshot-paps-tracklist-desktop.webp",
+      "sizes": "2850x1800",
+      "type": "image/webp",
+      "description": "A screenshot of the Tracklist with The Paps of Anu color theme on",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/screens/screenshot-star-tracklist-desktop.webp",
+      "sizes": "2850x1800",
+      "type": "image/webp",
+      "description": "A screenshot of the Tracklist with The Star above the Garter color theme on",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/screens/screenshot-dark-tracklist-desktop.webp",
+      "sizes": "2850x1800",
+      "type": "image/webp",
+      "description": "A screenshot of the Tracklist with the Dark color theme on",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/screens/screenshot-star-menu-tablet.webp",
+      "sizes": "3574x1800",
+      "type": "image/webp",
+      "description": "A screenshot of the tablet view of app menus with The Star above the Garter color theme on",
+      "form_factor": "wide"
     }
-  ],
-  "related_applications": [
-    {
-      "platform":"windows",
-      "url": "https://anton-bregolas.github.io/Tunetable/"
-    }
-  ],
-  "prefer_related_applications": false
+  ]
 }

@@ -1,8 +1,12 @@
-#ProjectDenis v.1.1: ITMA Blog Edition
+#ProjectDenis Web App v.1.2
 ========================================================================================
 #ProjectDenis explores the repertoire of the Sliabh Luachra music legend, fiddle player Denis Murphy (1910–1974).
 
 Join fiddle player Anton Zille and other Friends of Sliabh Luachra in a quest to uncover hidden gems in archival, historical and other previously unexplored recordings of Denis Murphy. Use this app to guide you to the tapes and tunes as they are being studied and organised from sources scattered across dozens of online and offline collections. Contribute to the volunteer project and the spreading of Denis Murphy's legacy by setting off on your own personal research journey or by simply learning some great tunes!
+
+**December 2025 update:**
+
+Progressive Web App improvements for better offline and cross-platform experience.
 
 **November 2024 update:** 
 
@@ -39,7 +43,23 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 ## Version History
 
-**ITMA Blog Edition Updates**
+**PWA Improvements**
+
+v.1.2.0
+
++ Refactor service worker logic for robust offline functionality
++ Service worker now correctly serves assets on reload while offline
++ Add asset categories to service worker, lazy-load images and fonts
++ Add fallback service worker methods for handling specific type of assets while offline
++ Update app.webmanifest: Add id and screenshot links
++ Add wide and narrow form-factor screenshots for PWA install menu
++ Add new primary app font (Lato) for consistent app display across platforms
++ Add auto-update-version scripts fine-tuned for app and toolkit
++ Add fallback background-color for The Star above the Garter theme
++ Fix JSON Splitter incorrectly parsing tune reflinks containing comma; Space between links is now required
+
+<details>
+  <summary>Version History Archive</summary>
 
 v.1.1.4
 
@@ -56,9 +76,6 @@ v.1.1.2
 + Add underline styles to popover grid links for clarity
 + Fix Alt + F3 focus behavior, scrollIntoView is now instant
 + Update Tune DB to 2025-10-08
-
-<details>
-  <summary>Version History Archive</summary>
 
 v.1.1.1
 

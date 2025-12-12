@@ -12,11 +12,11 @@ import { setAriaLabel } from './aria-tools.js';
 
 // Tune Database links
 
-export const tunesJsonLink = "../data/tunes.json";
-export const tracksJsonLink = "../data/tracks.json";
-export const colsJsonLink = "../data/collections.json";
-export const refsJsonLink = "../data/references.json";
-export const helperJsonLink = "../data/helper.json";
+export const tunesJsonLink = "https://anton-bregolas.github.io/ProjectDenis/data/tunes.json";
+export const tracksJsonLink = "https://anton-bregolas.github.io/ProjectDenis/data/tracks.json";
+export const colsJsonLink = "https://anton-bregolas.github.io/ProjectDenis/data/collections.json";
+export const refsJsonLink = "https://anton-bregolas.github.io/ProjectDenis/data/references.json";
+export const helperJsonLink = "https://anton-bregolas.github.io/ProjectDenis/data/helper.json";
 
 // Define App sections
 

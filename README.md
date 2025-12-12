@@ -45,6 +45,10 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 **PWA Improvements**
 
+v.1.2.1
+
++ Update Tune DB to 2025-12-12 (Fix tunes with reflinks containing commas)
+
 v.1.2.0
 
 + Refactor service worker logic for robust offline functionality

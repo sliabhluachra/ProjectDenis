@@ -1,4 +1,4 @@
-const APP_VERSION = '1.2.0.1';
+const APP_VERSION = '1.2.1.0';
 const APP_DATE = '2025-12-12';
 const CACHE_VERSION = APP_VERSION.replaceAll(".", '');
 const CACHE_PREFIX = "pd-cache-";

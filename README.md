@@ -45,6 +45,11 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 **PWA Improvements**
 
+v.1.2.2
+
++ Service worker refactored to async-await syntax for clarity
++ Additional fixes to service worker to correctly handle navigation & analytics
+
 v.1.2.1
 
 + Update Tune DB to 2025-12-12 (Fix tunes with reflinks containing commas)

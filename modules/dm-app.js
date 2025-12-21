@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////
-// #ProjectDenis App :: Client Edition :: v.1.2.0 :: ITMA Blog Edition
+// #ProjectDenis App :: Client Edition :: v.1.2.2 :: ITMA Blog Edition
 ///////////////////////////////////////////////////////////////////////
 
 import { appHelperHandler, helpCardPopover, showHelpPopover, 

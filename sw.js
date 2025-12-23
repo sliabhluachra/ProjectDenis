@@ -1,5 +1,5 @@
-const APP_VERSION = '1.2.2.0';
-const APP_DATE = '2025-12-22';
+const APP_VERSION = '1.2.2.1';
+const APP_DATE = '2025-12-23';
 const CACHE_VERSION = APP_VERSION.replaceAll(".", '');
 const CACHE_PREFIX = "pd-cache-";
 const CACHE_NAME = `${CACHE_PREFIX}${CACHE_VERSION}`;
@@ -144,8 +144,26 @@ self.addEventListener('fetch', event => {
   if (request.mode === 'navigate') {
     event.respondWith(
       (async () => {
-        const navResponse = await caches.match('index.html');
-        return navResponse || await fetch('index.html');
+
+        const navCachedResponse =
+          await caches.match('index.html');
+
+        if (navCachedResponse) {
+          return navCachedResponse;
+        }
+
+        try {
+          await fetch('index.html');
+
+        } catch (error) {
+
+          console.warn(
+            `PD Service Worker:\n\n` +
+            `Failed to fetch page from network, falling back to cached response`
+          );
+
+          return navCachedResponse;
+        }
       })()
     );
     return;

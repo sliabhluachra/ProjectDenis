@@ -1,155 +1,298 @@
-const CACHE_NAME = 'pd-cache-v.1.1.4.0';
+const APP_VERSION = '1.2.2.1';
+const APP_DATE = '2025-12-23';
+const CACHE_VERSION = APP_VERSION.replaceAll(".", '');
+const CACHE_PREFIX = "pd-cache-";
+const CACHE_NAME = `${CACHE_PREFIX}${CACHE_VERSION}`;
+const CACHE_EXPIRES_DAYS = 30;
 
-self.addEventListener('install', (event) => {
+const APP_ASSETS = [
+  'index.html',
+  'assets/icons/icons.svg',
+  'modules/dm-app.js',
+  'styles/dm-toolkit.css',
+  'styles/tools-common-styles.css',
+  'styles/dm-themes-override.css',
+  'components/dm-helper/dm-helper.css',
+  'components/dm-helper/dm-helper.js',
+  'components/dm-modals/dm-modals.css',
+  'components/dm-modals/dm-modals.js',
+  'components/dm-popovers/dm-popovers.css',
+  'components/dm-popovers/dm-popovers.js',
+  'components/dm-search/dm-search.css',
+  'components/dm-search/dm-search.js',
+  'components/dm-tracklist/dm-tracklist.css',
+  'components/dm-tracklist/dm-tracklist.js',
+  'modules/aria-tools.js',
+  'version.json'
+];
+
+const APP_ASSETS_LAZY = [
+  'assets/fonts/Lato-Regular.ttf',
+  'assets/fonts/Lato-Bold.ttf',
+  'assets/images/dm-helper-mango.webp',
+  'assets/images/dm-helper-purple.webp',
+  'assets/images/dm-helper-green.webp',
+  'assets/images/dm-helper-blue.webp',
+  'assets/images/dm-helper-pink.webp',
+  'assets/screens/placeholder-offline-pd.webp',
+  'assets/icons/android-chrome-192x192-maskable.png',
+  'assets/icons/android-chrome-192x192.png',
+  'assets/icons/android-chrome-512x512-maskable.png',
+  'assets/icons/android-chrome-512x512.png',
+  'assets/icons/apple-touch-icon.png',
+  'assets/icons/safari-pinned-tab.svg',
+  'favicon.ico',
+  'favicon.svg',
+  'app.webmanifest'
+];
+
+// Install service worker with critical assets
+// Skip waiting to activate service worker immediately
+// Keep loading low-priority assets after activation
+
+self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll([
-        'assets/icons/icons.svg',
-        'modules/dm-app.js',
-        'styles/dm-toolkit.css',
-        'styles/tools-common-styles.css',
-        'styles/dm-themes-override.css',
-        'components/dm-helper/dm-helper.css',
-        'components/dm-helper/dm-helper.js',
-        'components/dm-modals/dm-modals.css',
-        'components/dm-modals/dm-modals.js',
-        'components/dm-popovers/dm-popovers.css',
-        'components/dm-popovers/dm-popovers.js',
-        'components/dm-search/dm-search.css',
-        'components/dm-search/dm-search.js',
-        'components/dm-tracklist/dm-tracklist.css',
-        'components/dm-tracklist/dm-tracklist.js',
-        'modules/aria-tools.js',
-        'index.html'
-      ]);
-    })
+    (async () => {
+
+      const cache = await caches.open(CACHE_NAME);
+
+      try {
+
+        await cache.addAll(APP_ASSETS);
+
+      } catch (error) {
+
+        console.error('PD Service Worker: Caching of primary assets failed. Interrupting SW installation...', error);
+        throw error;
+      }
+
+      await self.skipWaiting();
+
+      // Lazy-load non-critical assets in the background
+
+      try {
+
+        await cache.addAll(APP_ASSETS_LAZY);
+        
+      } catch (error) {
+
+        console.warn('PD Service Worker: Lazy-loading of assets interrupted', error);
+      }
+    })()
   );
 });
 
-self.addEventListener('activate', (event) => {
-    event.waitUntil(
-      caches.keys().then((cacheNames) => {
-        return Promise.all(
-          cacheNames
-            .filter((cacheName) => cacheName !== CACHE_NAME)
-            .map((cacheName) => { 
-                console.log(`PD Service Worker:\n` +
-                `Clearing outdated cached files\n` +
-                `Cached version: ${cacheName.slice(11)}\n` +
-                `Current version: ${CACHE_NAME.slice(11)}`);
-                caches.delete(cacheName);
-            })
-        );
-      })
-    );
-});
+// Activate service worker, clear outdated caches, claim all pages
 
-self.addEventListener('activate', (event) => {
-    event.waitUntil(
-        // Activate new service worker on page reload
-        self.clients.claim().then(() => {
-            // Stop the old service worker, notify about version change in console 
-            console.log(`PD Service Worker: Cache version updated to ${CACHE_NAME.slice(11)}`);
-            self.registration.unregister().then(() => {
-                self.skipWaiting();
-            });
-        })
-    );
-});
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    (async () => {
 
-self.addEventListener('fetch', (event) => {
+      const cacheKeys = await caches.keys();
 
-  // Cache and retrieve JSON files
-
-  if (event.request.url.endsWith('tunes.json') || 
-      event.request.url.endsWith('tracks.json') || 
-      event.request.url.endsWith('collections.json') ||
-      event.request.url.endsWith('references.json') ||
-      event.request.url.endsWith('helper.json')) {
-      event.respondWith(
-        // Check if the file is already cached
-        caches.open(CACHE_NAME).then((cache) => {
-          return cache.match(event.request).then((cachedResponse) => {
-            // If found in cache and not older than 7 days, retrieve it from cache
-            if (cachedResponse && !isCacheExpired(cachedResponse, 7)) {
-              console.log(`PD Service Worker:\n\n` + `Retrieving saved Tune database from cache`);
-              return cachedResponse;
-            }
-            // If not found in cache or outdated, try to retrieve a fresh copy
-            console.warn(`PD Service Worker: Tune database missing or outdated.\n\n` + `Trying to fetch a fresh version`);
-            return fetchWithTimeout(event.request, 60000)
-              .then((networkResponse) => {
-                if (navigator.onLine && networkResponse && networkResponse.ok) {
-                  // Clone the network response without accessing its body
-                  const responseHeaders = new Headers(networkResponse.headers);
-                  responseHeaders.set('Date', new Date().toUTCString());
-                  // Create a new Response object with the cloned headers and the body stream
-                  const responseWithDateHeader = new Response(networkResponse.body, {
-                    status: networkResponse.status,
-                    statusText: networkResponse.statusText,
-                    headers: responseHeaders,
-                  });
-                  // Update cache with the fresh response
-                  cache.put(event.request, responseWithDateHeader.clone());
-                  console.log(`PD Service Worker:\n\n` + `Tune database successfully updated`);
-                  return responseWithDateHeader;
-                }
-  
-                // If fetch fails or navigator is offline, fall back to cached version
-                console.warn(`PD Service Worker: Fetch error caught.\n\n` + `Retrieving saved Tune database from cache`);
-                return cachedResponse;
-              })
-              .catch((error) => {
-                console.error(`PD Service Worker: Fetch error caught.\n\n` + error);
-                // Fall back to cached version if fetch throws an error
-                if (cachedResponse) {
-                  console.warn(`PD Service Worker: Falling back to cached Tune database due to fetch error`);
-                  return cachedResponse;
-                }
-                // If no cached response, return an error response
-                return new Response('Fetch error: No cached Tune database available', {
-                  status: 400,
-                  statusText: 'Fetch error and no cached Tune database available',
-                });
-              });
-          });
-        })
-      );
-
-  } else {
-      event.respondWith(
-          caches.match(event.request).then((response) => {
-              // console.log("PD Service Worker: Loading cached version of the file");
-              return response || fetch(event.request);
+      await Promise.all(
+        cacheKeys
+          .filter(cacheKey => cacheKey.startsWith(CACHE_PREFIX) && cacheKey !== CACHE_NAME)
+          .map(async cacheKey => {
+            console.log(`PD Service Worker:\n\n` +
+              `Cached version: v.${cacheKey.slice(CACHE_PREFIX.length).split('').join('.')}\n\n` +
+              `Current version: v.${APP_VERSION}\n\n` +
+              `Clearing outdated cached files...`);
+            await caches.delete(cacheKey);
           })
       );
-  }
+
+      await self.clients.claim();
+    })()
+  );
 });
+
+// Handle service worker fetch requests
+
+self.addEventListener('fetch', event => {
+
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // Handle offline behavior of analytics
+
+  if (url.hostname.includes('gc.zgo.at') || url.hostname.includes('goatcounter.com')) {
+    
+    if (self.location.hostname === 'localhost' ||
+        self.location.hostname.match(/127\.\d{1,3}\.\d{1,3}\.\d{1,3}/)) {
+      
+      event.respondWith(new Response(null, { status: 204, statusText: 'No Content' }));
+      return;
+    }
+
+    event.respondWith(
+      fetch(event.request).catch(() => {
+        return new Response(null, { status: 204, statusText: 'No Content' });
+      })
+    );
+    return;
+  }
+
+  // Filter out unrelated requests
+
+  if (request.method !== 'GET') {
+    return;
+  }
+
+  // Handle navigation: Serve cached HTML for main app sections, fall back to launch screen
+
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      (async () => {
+
+        const navCachedResponse =
+          await caches.match('index.html');
+
+        if (navCachedResponse) {
+          return navCachedResponse;
+        }
+
+        try {
+          await fetch('index.html');
+
+        } catch (error) {
+
+          console.warn(
+            `PD Service Worker:\n\n` +
+            `Failed to fetch page from network, falling back to cached response`
+          );
+
+          return navCachedResponse;
+        }
+      })()
+    );
+    return;
+  }
+
+  // Handle Tune DB files
+
+  if (/(tunes|tracks|collections|references|helper)\.json$/.test(url.pathname)) {
+    event.respondWith(handleDBCaching(request));
+    return;
+  }
+
+  // Handle all other assets
+
+  event.respondWith(handleAssetCaching(request));
+});
+
+// Cache and retrieve up-to-date Tune DB files
+
+async function handleDBCaching(request) {
+
+  const appCache = await caches.open(CACHE_NAME);
+
+  // Serve DB from cache if not outdated, use offline-safe lookup
+
+  const cachedDB = await caches.match(request, { ignoreSearch: true });
+
+  if (cachedDB && !isCacheExpired(cachedDB, CACHE_EXPIRES_DAYS)) {
+    console.log(
+      `PD Service Worker:\n\n` +
+      `Retrieving cached version of Tune DB`
+    );
+    return cachedDB;
+  }
+
+  // Fetch up-to-date DB from network, fall back to cached DB
+
+  try {
+    console.log(
+      `PD Service Worker:\n\n` +
+      `Tune DB missing or outdated\n\n` +
+      `Fetching a fresh version...`
+    );
+
+    const networkResponse = await fetch(request);
+
+    if (networkResponse?.ok) {
+      await appCache.put(request, networkResponse.clone());
+      console.log(
+        `PD Service Worker:\n\n` +
+        `Tune DB successfully updated\n\n` +
+        `Date: ${networkResponse.headers.get('Date')}`
+      );
+      return networkResponse;
+    }
+  } catch (error) {
+    console.log(
+      `PD Service Worker:\n\n` +
+      `Fetch unsuccessful. Falling back to cached version of Tune DB`
+    );
+  }
+
+  if (cachedDB) {
+    return cachedDB;
+  }
+
+  return new Response(
+    JSON.stringify({ error: 'Offline: No cached Tune DB available' }),
+    { status: 503, headers: { 'Content-Type': 'application/json' } }
+  );
+}
+
+// Fetch app assets from network or cache with offline-safe request
+
+async function handleAssetCaching(request) {
+
+  // Get assets from cache, ignoring search parameters
+  const cachedAsset = await caches.match(request, { ignoreSearch: true });
+
+  if (cachedAsset) {
+    return cachedAsset;
+  }
+
+  // Get assets from network, fix headers if needed
+  try {
+  
+    // Try fetching assets from network
+    const networkResponse = await fetch(request);
+    return networkResponse;
+  
+  } catch (error) {
+  
+    // Use fallbacks for specific cases
+
+    if (request.destination === 'script' ||
+        request.destination === 'json' ||
+        request.destination === 'font') {
+
+      const cacheKey = new Request(request.url, {
+        method: 'GET',
+        mode: 'same-origin',
+        cache: 'only-if-cached',
+        credentials: 'omit'
+      });
+
+      const fallbackResponse =
+        await caches.match(cacheKey);
+
+      if (fallbackResponse) {
+        return fallbackResponse;
+      }
+    }
+
+    if (request.destination === 'image') {
+      return await caches.match('assets/screens/placeholder-offline-pd.webp');
+    }
+
+    // Return a generic failed response if no fallback is available
+
+    console.warn(`PD Service Worker\n\nOffline: No cached assets available for this ${request.destination? request.destination : 'item'}`, error);
+
+    return new Response('', { status: 504, statusText: 'Gateway Timeout' });
+  }
+}
 
 // Helper function to check if a cached response is expired
 
 function isCacheExpired(cachedResponse, maxAgeInDays) {
-
-    const cacheDateHeader = cachedResponse.headers.get('date');
-
-    if (cacheDateHeader) {
-      const cacheDate = new Date(cacheDateHeader);
-      const currentDate = new Date();
-      const differenceInDays = (currentDate - cacheDate) / (1000 * 60 * 60 * 24);
-      console.log(`Date of cached Tune database:\n\n` + cacheDate);
-      return differenceInDays >= maxAgeInDays;
-    }
-
-    return false;
-  }
-
-  // Helper function preventing infinite loading if connection is lost during fetch request
-
-  function fetchWithTimeout(request, timeout) {
-    return Promise.race([
-      fetch(request),
-      new Promise((_, reject) =>
-        setTimeout(() => reject(new Error(`Request timed out`)), timeout)
-      ),
-    ]);
-  }
+  const date = cachedResponse.headers.get('date');
+  if (!date) return true;
+  return (Date.now() - new Date(date)) / (1000 * 60 * 60 * 24) >= maxAgeInDays;
+}

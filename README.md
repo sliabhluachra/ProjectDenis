@@ -8,6 +8,8 @@ Join fiddle player Anton Zille and other Friends of Sliabh Luachra in a quest to
 
 Progressive Web App improvements for better offline and cross-platform experience.
 
+New shorter app link: https://denis.tunebook.app/
+
 **November 2024 update:** 
 
 #ProjectDenis: ITMA Blog Edition has been released! Anton Zille's blog _Stories Told by Cards & Tapes: Uncovering Denis Murphy Materials at ITMA_ is a project done in cooperation with Irish Traditional Music Archive (ITMA). It features original research and some 40 previously unpublished recordings. The blog and the newly published materials can be accessed on ITMA's website:

@@ -47,6 +47,11 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 **PWA Improvements**
 
+v.1.2.3
+
++ Add fallback service worker logic to handle hard reload while offline
++ Revert Tune DB links to raw GitHub links after testing
+
 v.1.2.2
 
 + Service worker refactored to async-await syntax for clarity

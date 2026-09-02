@@ -47,6 +47,10 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 **PWA Improvements**
 
+v.1.2.5
+
++ Fix scroll-blocking rule in Tracklist styles
+
 v.1.2.4
 
 + Add abc.tunebook.app link handling for BB ABC

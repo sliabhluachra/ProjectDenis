@@ -337,6 +337,7 @@ function generateLinkSourceName(tuneTranscriptUrl) {
       case "www.capeirish.com":
         return "Bill Black";
       case "michaeleskin.com":
+      case "abc.tunebook.app":
         if (sourceLinkNameParam.startsWith("BB_ABC_"))
           return "Bill Black";
         else

@@ -47,6 +47,11 @@ NB: This is the Client version of the app. For Toolkit version with Tune DB tool
 
 **PWA Improvements**
 
+v.1.2.4
+
++ Add abc.tunebook.app link handling for BB ABC
++ Update Tune DB to 2026-09-01 (Add transcription links, replace MEABC links with links to fork)
+
 v.1.2.3
 
 + Add fallback service worker logic to handle hard reload while offline
